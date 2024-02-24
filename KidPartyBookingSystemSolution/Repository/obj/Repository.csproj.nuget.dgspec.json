@@ -1,0 +1,207 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\Repository\\Repository.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj",
+        "projectName": "BusinessObjects",
+        "projectPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj",
+        "packagesPath": "C:\\Users\\anh12\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\BusinessObjects\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\anh12\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.27, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.27, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.27, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\DAO\\DAO.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\DAO\\DAO.csproj",
+        "projectName": "DAO",
+        "projectPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\DAO\\DAO.csproj",
+        "packagesPath": "C:\\Users\\anh12\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\DAO\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\anh12\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj": {
+                "projectPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\Repository\\Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\Repository\\Repository.csproj",
+        "projectName": "Repository",
+        "projectPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\Repository\\Repository.csproj",
+        "packagesPath": "C:\\Users\\anh12\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\anh12\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\DAO\\DAO.csproj": {
+                "projectPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\DAO\\DAO.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

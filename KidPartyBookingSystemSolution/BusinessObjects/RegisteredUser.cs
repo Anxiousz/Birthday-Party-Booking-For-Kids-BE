@@ -20,6 +20,7 @@ namespace BusinessObjects
         public bool? Gender { get; set; }
         public string Address { get; set; }
         public int? Status { get; set; }
+        public int Role { get; set; }
 
         public virtual ICollection<Booking> Bookings { get; set; }
         public virtual ICollection<Feedback> Feedbacks { get; set; }

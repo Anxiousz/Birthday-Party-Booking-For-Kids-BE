@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Repository
 {
-    public interface IAccountRepository
+    public interface IRegisteredUserRepository
     {
-        public List<RegisteredUser> GetRegisteredUserAccount();
+        public RegisteredUser GetRegisteredUserAccount(string email, string password);
     }
 }

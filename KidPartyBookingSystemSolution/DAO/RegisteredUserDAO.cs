@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace DAO
 {
-    public class AccountDAO
+    public class RegisteredUserDAO
     {
-        private static AccountDAO instance = null;
+        private static RegisteredUserDAO instance = null;
         private readonly PHSContext dbContext = null;
-        public AccountDAO()
+        public RegisteredUserDAO()
         {
             if (dbContext == null)
             {
@@ -19,21 +19,21 @@ namespace DAO
             }
         }
 
-        public static AccountDAO Instance
+        public static RegisteredUserDAO Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new AccountDAO();
+                    instance = new RegisteredUserDAO();
                 }
                 return instance;
             }
         }
 
-        public List<RegisteredUser> GetRegisteredUserAccount()
+        public RegisteredUser GetRegisteredUserAccount(string email , string password)
         {
-            return dbContext.RegisteredUsers.ToList();
+            return dbContext.RegisteredUsers.FirstOrDefault(m => m.Email.Equals(email) &&  m.Password.Equals(password));
         }
     }
 }

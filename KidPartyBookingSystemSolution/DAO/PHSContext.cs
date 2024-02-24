@@ -32,7 +32,7 @@ namespace BusinessObjects
         public virtual DbSet<Room> Rooms { get; set; }
         public virtual DbSet<TransactionBooking> TransactionBookings { get; set; }
         public virtual DbSet<Voucher> Vouchers { get; set; }
-        public virtual DbSet<staff> staff { get; set; }
+        public virtual DbSet<Staff> staff { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -51,6 +51,7 @@ namespace BusinessObjects
             var strConn = config["ConnectionStrings:DefaultConnection"];
             return strConn;
         }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -150,7 +151,7 @@ namespace BusinessObjects
             modelBuilder.Entity<LogAction>(entity =>
             {
                 entity.HasKey(e => e.LogId)
-                    .HasName("PK__LogActio__5E5499A83DDB64E1");
+                    .HasName("PK__LogActio__5E5499A8F0E3B206");
 
                 entity.ToTable("LogAction");
 
@@ -168,7 +169,7 @@ namespace BusinessObjects
             modelBuilder.Entity<MenuOrder>(entity =>
             {
                 entity.HasKey(e => e.MenuId)
-                    .HasName("PK__MenuOrde__C99ED250BB215955");
+                    .HasName("PK__MenuOrde__C99ED25093EA194A");
 
                 entity.ToTable("MenuOrder");
 
@@ -195,7 +196,7 @@ namespace BusinessObjects
             modelBuilder.Entity<MenuPartyHost>(entity =>
             {
                 entity.HasKey(e => e.FoodOrderId)
-                    .HasName("PK__MenuPart__943FF77FD5B96BB8");
+                    .HasName("PK__MenuPart__943FF77F7122C355");
 
                 entity.ToTable("MenuPartyHost");
 
@@ -307,7 +308,7 @@ namespace BusinessObjects
             modelBuilder.Entity<RegisteredUser>(entity =>
             {
                 entity.HasKey(e => e.AccountId)
-                    .HasName("PK__Register__349DA5A62BFCECD0");
+                    .HasName("PK__Register__349DA5A62FF4BF3B");
 
                 entity.ToTable("RegisteredUser");
 
@@ -371,7 +372,7 @@ namespace BusinessObjects
             modelBuilder.Entity<TransactionBooking>(entity =>
             {
                 entity.HasKey(e => e.TransactionId)
-                    .HasName("PK__Transact__55433A4BFCDEA72D");
+                    .HasName("PK__Transact__55433A4BA4243A77");
 
                 entity.ToTable("TransactionBooking");
 
@@ -412,7 +413,7 @@ namespace BusinessObjects
                     .HasConstraintName("FK_PartyHost_Voucher");
             });
 
-            modelBuilder.Entity<staff>(entity =>
+            modelBuilder.Entity<Staff>(entity =>
             {
                 entity.ToTable("Staff");
 

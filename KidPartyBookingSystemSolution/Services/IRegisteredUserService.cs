@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public interface IAccountService
+    public interface IRegisteredUserService
     {
 
-        public List<RegisteredUser> GetRegisteredUserAccount();
+        public RegisteredUser GetRegisteredUserAccount(string email , string password);
     }
 }

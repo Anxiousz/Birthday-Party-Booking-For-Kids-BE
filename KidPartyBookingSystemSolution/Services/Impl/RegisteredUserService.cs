@@ -18,9 +18,33 @@ namespace Services.Impl
             registeredUserRepository = new RegisteredUserRepository();
         }
 
-        public RegisteredUser GetRegisteredUserAccount(string email, string password)
+        public List<RegisteredUser> GetRegisteredUser()
         {
-            return registeredUserRepository.GetRegisteredUserAccount(email, password);
+            return registeredUserRepository.GetRegisteredUser();
+        }
+
+        public RegisteredUser CreateRegisteredUser(RegisteredUser request)
+        {
+            return registeredUserRepository.CreateRegisteredUser(request);
+        }
+
+        public bool DeleteRegisteredUser(int id)
+        {
+            return registeredUserRepository.DeleteRegisteredUser(id);
+        }
+
+        public bool checkRegisteredUserExistedByEmail(string email)
+        {
+            return registeredUserRepository.checkRegisteredUserExistedByEmail(email);
+        }
+
+        public RegisteredUser checkRegisteredUserExistedByID(int id)
+        {
+            return registeredUserRepository.checkRegisteredUserExistedByID(id);
+        }
+        public RegisteredUser UpdateRegisteredUser(RegisteredUser request)
+        {
+            return registeredUserRepository.UpdateRegisteredUser(request);
         }
     }
 }

@@ -9,6 +9,11 @@ namespace Repository
 {
     public interface IRegisteredUserRepository
     {
-        public RegisteredUser GetRegisteredUserAccount(string email, string password);
+        public List<RegisteredUser> GetRegisteredUser();
+        public RegisteredUser CreateRegisteredUser(RegisteredUser request);
+        public bool DeleteRegisteredUser(int id);
+        public bool checkRegisteredUserExistedByEmail(string email);
+        public RegisteredUser checkRegisteredUserExistedByID(int id);
+        public RegisteredUser UpdateRegisteredUser(RegisteredUser request);
     }
 }

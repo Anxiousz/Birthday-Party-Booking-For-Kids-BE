@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using BusinessObjects.Request;
 using DAO;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace Repository.Impl
             return registeredUserDAO.GetRegisteredUser();
         }
 
-        public RegisteredUser CreateRegisteredUser(RegisteredUser request)
+        public RequestRegisteredUserDTO CreateRegisteredUser(RequestRegisteredUserDTO request)
         {
             return registeredUserDAO.CreateRegisteredUser(request);
         }
@@ -43,6 +44,14 @@ namespace Repository.Impl
         public RegisteredUser UpdateRegisteredUser(RegisteredUser request)
         {
             return registeredUserDAO.UpdateRegisteredUser(request);
+        }
+        public int CountRegisteredUser()
+        {
+            return registeredUserDAO.CountRegisteredUser();
+        }
+        public List<RegisteredUser> searchRegisteredUser(string context)
+        {
+            return registeredUserDAO.searchRegisteredUser(context);
         }
     }
 }

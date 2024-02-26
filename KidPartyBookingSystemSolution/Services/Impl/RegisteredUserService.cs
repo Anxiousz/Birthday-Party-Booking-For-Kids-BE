@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using BusinessObjects.Request;
 using Repository;
 using Repository.Impl;
 using System;
@@ -23,7 +24,7 @@ namespace Services.Impl
             return registeredUserRepository.GetRegisteredUser();
         }
 
-        public RegisteredUser CreateRegisteredUser(RegisteredUser request)
+        public RequestRegisteredUserDTO CreateRegisteredUser(RequestRegisteredUserDTO request)
         {
             return registeredUserRepository.CreateRegisteredUser(request);
         }
@@ -45,6 +46,15 @@ namespace Services.Impl
         public RegisteredUser UpdateRegisteredUser(RegisteredUser request)
         {
             return registeredUserRepository.UpdateRegisteredUser(request);
+        }
+        public int CountRegisteredUser()
+        {
+            return registeredUserRepository.CountRegisteredUser();
+        }
+        public List<RegisteredUser> searchRegisteredUser(string context)
+        {
+            List<RegisteredUser> list = registeredUserRepository.searchRegisteredUser(context);
+            return list;
         }
     }
 }

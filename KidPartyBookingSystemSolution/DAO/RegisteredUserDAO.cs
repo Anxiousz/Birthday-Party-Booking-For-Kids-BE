@@ -1,5 +1,7 @@
-﻿using Azure.Core;
+﻿using AutoMapper;
+using Azure.Core;
 using BusinessObjects;
+using BusinessObjects.Request;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -38,10 +40,16 @@ namespace DAO
             return dbContext.RegisteredUsers.ToList();
         }
 
-        public RegisteredUser CreateRegisteredUser(RegisteredUser request)
+        public RequestRegisteredUserDTO CreateRegisteredUser(RequestRegisteredUserDTO request)
         {
-            request.Role = 4;
-            dbContext.RegisteredUsers.Add(request);
+            var config = new MapperConfiguration(cfg => {
+                cfg.AddProfile<MappingProfile>();
+            });
+            IMapper mapper = config.CreateMapper();
+            RegisteredUser registeredUser = mapper.Map<RegisteredUser>(request);
+            registeredUser.Role = 4;
+            registeredUser.Status = 1;
+            dbContext.RegisteredUsers.Add(registeredUser);
             dbContext.SaveChanges();
             return request;
         }
@@ -85,6 +93,22 @@ namespace DAO
                 dbContext.SaveChanges();
             }
             return request;
+        }
+
+        public int CountRegisteredUser()
+        {
+            return dbContext.RegisteredUsers.Count();
+        }
+
+        public List<RegisteredUser> searchRegisteredUser(string context)
+        {
+            List<RegisteredUser> searchAccounts = dbContext.RegisteredUsers
+                .Where(x =>
+                    x.Email.ToUpper().Contains(context.ToUpper().Trim()) ||
+                    x.Address.ToUpper().Contains(context.ToUpper().Trim()) ||
+                    x.UserName.ToUpper().Contains(context.ToUpper().Trim()))
+                .ToList();
+            return searchAccounts;
         }
     }
 }

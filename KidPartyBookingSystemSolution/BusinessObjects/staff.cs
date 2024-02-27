@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace BusinessObjects
 {
-    public partial class Staff
+    public partial class staff
     {
-        public Staff()
+        public staff()
         {
             PartyHosts = new HashSet<PartyHost>();
         }
@@ -17,10 +17,10 @@ namespace BusinessObjects
         public string Password { get; set; }
         public DateTime BirthDay { get; set; }
         public string Phone { get; set; }
-        public bool? Gender { get; set; }
+        public string Gender { get; set; }
         public string Address { get; set; }
+        public string Role { get; set; }
         public int? Status { get; set; }
-        public int Role { get; set; }
 
         public virtual Admin Superior { get; set; }
         public virtual ICollection<PartyHost> PartyHosts { get; set; }

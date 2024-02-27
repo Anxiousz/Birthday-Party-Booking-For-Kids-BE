@@ -47,7 +47,7 @@ namespace DAO
             });
             IMapper mapper = config.CreateMapper();
             RegisteredUser registeredUser = mapper.Map<RegisteredUser>(request);
-            registeredUser.Role = 4;
+            registeredUser.Role = "4";
             registeredUser.Status = 1;
             dbContext.RegisteredUsers.Add(registeredUser);
             dbContext.SaveChanges();

@@ -8,6 +8,7 @@ namespace BusinessObjects
         public PartyHost()
         {
             MenuPartyHosts = new HashSet<MenuPartyHost>();
+            Posts = new HashSet<Post>();
             Rooms = new HashSet<Room>();
             Vouchers = new HashSet<Voucher>();
         }
@@ -19,15 +20,16 @@ namespace BusinessObjects
         public string Password { get; set; }
         public DateTime BirthDay { get; set; }
         public string Phone { get; set; }
-        public bool? Gender { get; set; }
+        public string Gender { get; set; }
         public string Address { get; set; }
         public int? PackageId { get; set; }
+        public string Role { get; set; }
         public int? Status { get; set; }
-        public int Role { get; set; }
 
         public virtual Package Package { get; set; }
-        public virtual Staff Staff { get; set; }
+        public virtual staff Staff { get; set; }
         public virtual ICollection<MenuPartyHost> MenuPartyHosts { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }
         public virtual ICollection<Room> Rooms { get; set; }
         public virtual ICollection<Voucher> Vouchers { get; set; }
     }

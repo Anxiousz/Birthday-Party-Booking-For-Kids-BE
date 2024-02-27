@@ -41,12 +41,13 @@ namespace DAO
 
         public RequestPartyHostDTO CreatePartyHost(RequestPartyHostDTO request)
         {
-            var config = new MapperConfiguration(cfg => {
+            var config = new MapperConfiguration(cfg =>
+            {
                 cfg.AddProfile<MappingProfile>();
             });
             IMapper mapper = config.CreateMapper();
             PartyHost partyHost = mapper.Map<PartyHost>(request);
-            partyHost.Role = 3;
+            partyHost.Role = "3";
             partyHost.Status = 1;
             dbContext.PartyHosts.Add(partyHost);
             dbContext.SaveChanges();

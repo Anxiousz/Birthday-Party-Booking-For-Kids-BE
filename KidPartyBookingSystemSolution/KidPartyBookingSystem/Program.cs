@@ -8,6 +8,20 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<IAdminService, AdminService>();
+builder.Services.AddScoped<IBookingService, BookingService>();
+builder.Services.AddScoped<IConfigService, ConfigService>();
+builder.Services.AddScoped<IFeedBackService, FeedBackService>();
+builder.Services.AddScoped<ILogActionService, LogActionService>();
+builder.Services.AddScoped<IMenuOrderService, MenuOrderService>();
+builder.Services.AddScoped<IMenuPartyHostService, MenuPartyHostService>();
+builder.Services.AddScoped<IPackageService, PackageService>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<IPostService, PostService>();
+builder.Services.AddScoped<IRoomService, RoomService>();
+builder.Services.AddScoped<IStaffService, StaffService>();
+builder.Services.AddScoped<ITransactionBookingService, TransactionBookingService>();
+builder.Services.AddScoped<IVoucherService, VoucherService>();
 builder.Services.AddScoped<IRegisteredUserService, RegisteredUserService>();
 builder.Services.AddScoped<IPartyHostService, PartyHostService>();
 builder.Services.AddControllers();

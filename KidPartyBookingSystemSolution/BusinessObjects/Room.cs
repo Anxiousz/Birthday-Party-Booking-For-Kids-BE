@@ -20,6 +20,7 @@ namespace BusinessObjects
         public string Location { get; set; }
         public int Price { get; set; }
         public string Note { get; set; }
+        public string Image { get; set; }
         public int Status { get; set; }
 
         public virtual PartyHost PartyHost { get; set; }

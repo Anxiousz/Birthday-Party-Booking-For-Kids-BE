@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessObjects.Request;
+using BusinessObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +10,6 @@ namespace Services
 {
     public interface IStaffRepository
     {
+        public staff GetStaffAccount(RequestAccountLoginDTO request);
     }
 }

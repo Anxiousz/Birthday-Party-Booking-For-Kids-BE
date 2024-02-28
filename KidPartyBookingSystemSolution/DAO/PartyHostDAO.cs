@@ -111,5 +111,16 @@ namespace DAO
                 .ToList();
             return searchAccounts;
         }
+
+        public PartyHost GetPartyHostAccount(RequestAccountLoginDTO request)
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<MappingProfile>();
+            });
+            IMapper mapper = config.CreateMapper();
+            PartyHost partyHost = mapper.Map<PartyHost>(request);
+            return dbContext.PartyHosts.FirstOrDefault(a => a.Email.Equals(partyHost.Email.Trim()) && a.Password.Equals(partyHost.Password.Trim()));
+        }
     }
 }

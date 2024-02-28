@@ -1,4 +1,6 @@
-﻿using DAO;
+﻿using BusinessObjects;
+using BusinessObjects.Request;
+using DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,11 @@ namespace Services.Impl
         public StaffRepository()
         {
             staffDAO = new StaffDAO();
+        }
+
+        public staff GetStaffAccount(RequestAccountLoginDTO request)
+        {
+            return staffDAO.GetStaffAccount(request);
         }
     }
 }

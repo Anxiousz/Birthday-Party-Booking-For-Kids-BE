@@ -30,5 +30,97 @@ namespace DAO
                 return instance;
             }
         }
+
+        // Get Room By Party Host ID
+        public List<Room> GetAllRoomById(int id)
+        {
+            try
+            {
+                return dbContext.Rooms.Where(r => r.PartyHostId == id).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        // Get Room by ID
+        public Room getRoomById(int id)
+        {
+            try
+            {
+                return dbContext.Rooms.SingleOrDefault(r => r.RoomId == id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        // Create Room By Id 
+        public void CreateNewRoom(Room room)
+        {
+            try
+            {
+                dbContext.Rooms.Add(room);
+                dbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        // Update Status Room
+        public void UpdateStatusRoom(Room room)
+        {
+            try
+            {
+                if(room.Status == 0)
+                {
+                    room.Status = 1;
+                } else if (room.Status == 1)
+                {
+                    room.Status = 0;
+                }
+                dbContext.SaveChanges();
+            } catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        //Update Room
+        public bool UpdateRoom(int id, Room updatedRoom)
+        {
+            bool result = false;
+            Room room = getRoomById(id);
+            try
+            {
+                if (room != null)
+                {
+                    room = new Room
+                    {
+                        PartyHostId = room.PartyHostId,
+                        RoomName = updatedRoom.RoomName,
+                        RoomType = room.RoomType,
+                        Capacity = updatedRoom.Capacity,
+                        TimeStart = updatedRoom.TimeStart,
+                        TimeEnd = updatedRoom.TimeEnd,
+                        Location = updatedRoom.Location,
+                        Price = updatedRoom.Price,
+                        Note = updatedRoom.Note,
+                        Status = 0
+                    };
+                    dbContext.Update(room);
+                    dbContext.SaveChanges();
+                    return result = true;
+                }
+            } catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;  
+        }
     }
 }

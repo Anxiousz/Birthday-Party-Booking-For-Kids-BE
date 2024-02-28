@@ -13,6 +13,7 @@ namespace KidPartyBookingSystem.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
+    [Authorize(Roles = "1")]
     public class DashboardController : ControllerBase
     {
         private IRegisteredUserService _registeredUserService;

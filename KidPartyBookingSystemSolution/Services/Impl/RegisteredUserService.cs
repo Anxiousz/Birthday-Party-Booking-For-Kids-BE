@@ -56,5 +56,18 @@ namespace Services.Impl
             List<RegisteredUser> list = registeredUserRepository.searchRegisteredUser(context);
             return list;
         }
+        public RegisteredUser GetRegisteredUserAccount(RequestAccountLoginDTO request)
+        {
+            try
+            {
+                if(request == null)
+                {
+                    throw new Exception();
+                }
+            }catch (Exception ex) { 
+                Console.WriteLine(ex.Message);
+            }
+            return registeredUserRepository.GetRegisteredUserAccount(request);
+        }
     }
 }

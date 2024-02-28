@@ -55,5 +55,20 @@ namespace Services.Impl
             List<PartyHost> list = partyHostRepository.searchPartyHost(context);
             return list;
         }
+        public PartyHost GetPartyHostAccount(RequestAccountLoginDTO request)
+        {
+            try
+            {
+                if (request == null)
+                {
+                    throw new Exception();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return partyHostRepository.GetPartyHostAccount(request);
+        }
     }
 }

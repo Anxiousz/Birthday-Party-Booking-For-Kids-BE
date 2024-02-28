@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj": {}
+    "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj": {}
   },
   "projects": {
-    "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj": {
+    "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj",
         "projectName": "BusinessObjects",
-        "projectPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj",
-        "packagesPath": "C:\\Users\\anh12\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\BusinessObjects\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\BusinessObjects\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\anh12\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -15,6 +15,7 @@ namespace DAO
         {
             CreateMap<RequestPartyHostDTO, PartyHost>();
             CreateMap<RequestRegisteredUserDTO, RegisteredUser>();
+            CreateMap<RequestMenuPartyHostDTO, MenuPartyHost>();
         }
     }
 }

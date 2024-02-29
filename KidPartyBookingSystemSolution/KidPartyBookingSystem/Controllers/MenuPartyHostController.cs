@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Services;
 
 namespace KidPartyBookingSystem.Controllers
 {
     [ApiController]
     [Route("api/v1/[Controller]")]
+    [Authorize (Roles = "3")]
     public class MenuPartyHostController : ControllerBase
     {
         private static String NOT_FOUND = "Hien tai khong tim thay du lieu";

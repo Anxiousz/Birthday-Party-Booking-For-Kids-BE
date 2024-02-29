@@ -79,11 +79,8 @@ builder.Services.AddSwaggerGen(option =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
 
 app.UseRouting(); // Add UseRouting before UseCors
 

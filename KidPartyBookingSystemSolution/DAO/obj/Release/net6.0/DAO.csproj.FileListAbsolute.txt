@@ -1,0 +1,16 @@
+C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\DAO\bin\Release\net6.0\DAO.deps.json
+C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\DAO\bin\Release\net6.0\DAO.dll
+C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\DAO\bin\Release\net6.0\DAO.pdb
+C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\DAO\bin\Release\net6.0\BusinessObjects.dll
+C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\DAO\bin\Release\net6.0\BusinessObjects.pdb
+C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\DAO\obj\Release\net6.0\DAO.csproj.AssemblyReference.cache
+C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\DAO\obj\Release\net6.0\DAO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\DAO\obj\Release\net6.0\DAO.AssemblyInfoInputs.cache
+C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\DAO\obj\Release\net6.0\DAO.AssemblyInfo.cs
+C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\DAO\obj\Release\net6.0\DAO.csproj.CoreCompileInputs.cache
+C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\DAO\obj\Release\net6.0\DAO.sourcelink.json
+C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\DAO\obj\Release\net6.0\DAO.csproj.CopyComplete
+C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\DAO\obj\Release\net6.0\DAO.dll
+C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\DAO\obj\Release\net6.0\refint\DAO.dll
+C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\DAO\obj\Release\net6.0\DAO.pdb
+C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\DAO\obj\Release\net6.0\ref\DAO.dll

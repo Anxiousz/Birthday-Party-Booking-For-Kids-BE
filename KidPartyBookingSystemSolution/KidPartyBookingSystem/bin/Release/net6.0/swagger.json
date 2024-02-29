@@ -1,0 +1,1039 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "KidPartyBookingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "version": "1.0"
+  },
+  "paths": {
+    "/RegisteredUser": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Dashboard"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RequestRegisteredUserDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/RegisteredUser/{id}": {
+      "delete": {
+        "tags": [
+          "Dashboard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/RegisteredUser/search/{context}": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "context",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/RegisteredUser/count": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/PartyHost": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Dashboard"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RequestPartyHostDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/PartyHost/search/{context}": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "context",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/PartyHost/{id}": {
+      "delete": {
+        "tags": [
+          "Dashboard"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/Login/Admin": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RequestAccountLoginDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/Login/RegisteredUser": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RequestAccountLoginDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/Login/Staff": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RequestAccountLoginDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/Login/PartyHost": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RequestAccountLoginDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/api/Room/{id}": {
+      "get": {
+        "tags": [
+          "Room"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Room"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Room"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Room"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Admin": {
+      "type": "object",
+      "properties": {
+        "adminId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "email": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "configs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Config"
+          }
+        },
+        "packages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Package"
+          }
+        },
+        "staff": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/staff"
+          }
+        }
+      }
+    },
+    "Booking": {
+      "type": "object",
+      "properties": {
+        "bookingId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "roomId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "accId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "menuOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "transactionId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "bookingDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "bookingStatus": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "acc": {
+          "$ref": "#/definitions/RegisteredUser"
+        },
+        "menuOrder": {
+          "$ref": "#/definitions/MenuOrder"
+        },
+        "room": {
+          "$ref": "#/definitions/Room"
+        },
+        "transaction": {
+          "$ref": "#/definitions/TransactionBooking"
+        }
+      }
+    },
+    "Config": {
+      "type": "object",
+      "properties": {
+        "configId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "adminId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "numberOfPage": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "numberOfPost": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "dateTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "admin": {
+          "$ref": "#/definitions/Admin"
+        }
+      }
+    },
+    "Feedback": {
+      "type": "object",
+      "properties": {
+        "feedbackId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "postId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "rating": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "createdBy": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "createdByNavigation": {
+          "$ref": "#/definitions/RegisteredUser"
+        },
+        "post": {
+          "$ref": "#/definitions/Post"
+        }
+      }
+    },
+    "MenuOrder": {
+      "type": "object",
+      "properties": {
+        "menuOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "foodOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "foodName": {
+          "type": "string"
+        },
+        "quantity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "totalPrice": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "foodOrder": {
+          "$ref": "#/definitions/MenuPartyHost"
+        },
+        "bookings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Booking"
+          }
+        }
+      }
+    },
+    "MenuPartyHost": {
+      "type": "object",
+      "properties": {
+        "foodOrderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "foodName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "price": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "partyHostId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "image": {
+          "type": "string"
+        },
+        "partyHost": {
+          "$ref": "#/definitions/PartyHost"
+        },
+        "menuOrders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MenuOrder"
+          }
+        }
+      }
+    },
+    "Package": {
+      "type": "object",
+      "properties": {
+        "packageId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "packageName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "price": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "createdBy": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "createdByNavigation": {
+          "$ref": "#/definitions/Admin"
+        },
+        "partyHosts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PartyHost"
+          }
+        }
+      }
+    },
+    "PartyHost": {
+      "type": "object",
+      "properties": {
+        "partyHostId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "staffId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "email": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "birthDay": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "packageId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "role": {
+          "type": "string"
+        },
+        "status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "package": {
+          "$ref": "#/definitions/Package"
+        },
+        "staff": {
+          "$ref": "#/definitions/staff"
+        },
+        "menuPartyHosts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MenuPartyHost"
+          }
+        },
+        "posts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Post"
+          }
+        },
+        "rooms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Room"
+          }
+        },
+        "vouchers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Voucher"
+          }
+        }
+      }
+    },
+    "Payment": {
+      "type": "object",
+      "properties": {
+        "paymentId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "paymentMethod": {
+          "type": "string"
+        },
+        "amount": {
+          "format": "double",
+          "type": "number"
+        },
+        "createTime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "paymentStatus": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "transactionBookings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TransactionBooking"
+          }
+        }
+      }
+    },
+    "Post": {
+      "type": "object",
+      "properties": {
+        "postId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "context": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "createdAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "createdBy": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "updatedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "updatedBy": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "image": {
+          "type": "string"
+        },
+        "createdByNavigation": {
+          "$ref": "#/definitions/PartyHost"
+        },
+        "feedbacks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Feedback"
+          }
+        }
+      }
+    },
+    "RegisteredUser": {
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "email": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "birthDay": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "bookings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Booking"
+          }
+        },
+        "feedbacks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Feedback"
+          }
+        }
+      }
+    },
+    "RequestAccountLoginDTO": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "RequestPartyHostDTO": {
+      "type": "object",
+      "properties": {
+        "staffId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "email": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "birthDay": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "boolean"
+        },
+        "address": {
+          "type": "string"
+        },
+        "packageId": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "RequestRegisteredUserDTO": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "birthDay": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "boolean"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    },
+    "Room": {
+      "type": "object",
+      "properties": {
+        "roomId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "partyHostId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "roomName": {
+          "type": "string"
+        },
+        "roomType": {
+          "type": "string"
+        },
+        "capacity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "timeStart": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "timeEnd": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "price": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "note": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "partyHost": {
+          "$ref": "#/definitions/PartyHost"
+        },
+        "bookings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Booking"
+          }
+        }
+      }
+    },
+    "TransactionBooking": {
+      "type": "object",
+      "properties": {
+        "transactionId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "paymentId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "payment": {
+          "$ref": "#/definitions/Payment"
+        },
+        "bookings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Booking"
+          }
+        }
+      }
+    },
+    "Voucher": {
+      "type": "object",
+      "properties": {
+        "voucherId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fromDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "toDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "expired": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "reissuedBy": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "reissuedByNavigation": {
+          "$ref": "#/definitions/PartyHost"
+        }
+      }
+    },
+    "staff": {
+      "type": "object",
+      "properties": {
+        "staffId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "superiorId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "email": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "birthDay": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "superior": {
+          "$ref": "#/definitions/Admin"
+        },
+        "partyHosts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PartyHost"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Bearer": { }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

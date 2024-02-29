@@ -19,5 +19,6 @@ namespace Services
         public int CountPartyHost();
         public List<PartyHost> searchPartyHost(string context);
         public PartyHost GetPartyHostAccount(RequestAccountLoginDTO request);
+        public PartyHost checkPackageExisted(int id);
     }
 }

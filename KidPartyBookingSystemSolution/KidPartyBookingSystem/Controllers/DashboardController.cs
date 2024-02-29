@@ -18,13 +18,17 @@ namespace KidPartyBookingSystem.Controllers
     {
         private IRegisteredUserService _registeredUserService;
         private IPartyHostService _partyHostService;
-        public DashboardController(IRegisteredUserService registeredUserService, IPartyHostService partyHostService)
+        private IStaffService _staffService;
+        private IPackageService _packageService;
+        public DashboardController(IRegisteredUserService registeredUserService, IPartyHostService partyHostService, IStaffService staffService, IPackageService packageService)
         {
             _registeredUserService = registeredUserService;
             _partyHostService = partyHostService;
+            _staffService = staffService;
+            _packageService = packageService;
         }
 
-        [HttpGet("/RegisteredUser")]
+        [HttpGet("RegisteredUser")]
         public IActionResult GetRegisteredUser()
         {
             var registeredUser = _registeredUserService.GetRegisteredUser();
@@ -35,7 +39,7 @@ namespace KidPartyBookingSystem.Controllers
             return NotFound();
         }
 
-        [HttpPost("/RegisteredUser")]
+        [HttpPost("RegisteredUser")]
         public IActionResult CreateRegisteredUser([FromBody] RequestRegisteredUserDTO request)
         {
             if (request == null)
@@ -51,7 +55,7 @@ namespace KidPartyBookingSystem.Controllers
             return Conflict("The user is existed");
         }
 
-        [HttpDelete("/RegisteredUser/{id}")]
+        [HttpDelete("RegisteredUser/{id}")]
         public IActionResult DeleteRegisteredUser(int id)
         {
             RegisteredUser checkExisted = _registeredUserService.checkRegisteredUserExistedByID(id);
@@ -63,20 +67,21 @@ namespace KidPartyBookingSystem.Controllers
             return NotFound("The user not found");
         }
 
-        [HttpGet("/RegisteredUser/search/{context}")]
+        [HttpGet("RegisteredUser/search/{context}")]
         public IActionResult searchRegisteredUser(string context)
         {
             List<RegisteredUser> searchAccount = _registeredUserService.searchRegisteredUser(context);
             return Ok(searchAccount);
         }
 
-        [HttpGet("/RegisteredUser/count")]
-        public IActionResult CountRegistredUser()
+        [HttpGet("Account/total")]
+        public IActionResult CountAccount()
         {
-            return Ok(_registeredUserService.CountRegisteredUser());
+            int countAccount = _partyHostService.CountPartyHost() + _registeredUserService.CountRegisteredUser() + _staffService.CountStaff();
+            return Ok(countAccount);
         }
 
-        [HttpGet("/PartyHost")]
+        [HttpGet("PartyHost")]
         public IActionResult GetPartyHost()
         {
             var partyHost = _partyHostService.GetPartyHost();
@@ -87,14 +92,14 @@ namespace KidPartyBookingSystem.Controllers
             return NotFound();
         }
 
-        [HttpGet("/PartyHost/search/{context}")]
-        public IActionResult searchAccount(string context)
+        [HttpGet("PartyHost/search/{context}")]
+        public IActionResult searchPartyHost(string context)
         {
-            List<PartyHost> searchAccount = _partyHostService.searchPartyHost(context);
-            return Ok(searchAccount);
+            List<PartyHost> searchPartyHost = _partyHostService.searchPartyHost(context);
+            return Ok(searchPartyHost);
         }
 
-        [HttpPost("/PartyHost")]
+        [HttpPost("PartyHost")]
         public IActionResult CreatePartyHost([FromBody] RequestPartyHostDTO request)
         {
             if (request == null)
@@ -110,7 +115,7 @@ namespace KidPartyBookingSystem.Controllers
             return Conflict("The user is existed");
         }
 
-        [HttpDelete("/PartyHost/{id}")]
+        [HttpDelete("PartyHost/{id}")]
         public IActionResult DeletePartyHost(int id)
         {
             PartyHost checkExisted = _partyHostService.checkPartyHostExistedByID(id);
@@ -120,6 +125,115 @@ namespace KidPartyBookingSystem.Controllers
                 return Ok("Delete " + checkExisted.Email + " successfully");
             }
             return NotFound("The user not found");
+        }
+
+        [HttpGet("Staff")]
+        public IActionResult GetStaff()
+        {
+            var staff = _staffService.GetStaff();
+            if (staff != null)
+            {
+                return Ok(staff);
+            }
+            return NotFound();
+        }
+
+        [HttpGet("Staff/search/{context}")]
+        public IActionResult searchStaff(string context)
+        {
+            List<staff> searchStaff = _staffService.SearchStaff(context);
+            return Ok(searchStaff);
+        }
+
+        [HttpPost("Staff")]
+        public IActionResult CreateStaff([FromBody] RequestStaffDTO request)
+        {
+            if (request == null)
+            {
+                return BadRequest("The field not empty");
+            }
+            bool checkExisted = _staffService.checkStaffExistedByEmail(request.Email.Trim());
+            if (checkExisted != true)
+            {
+                RequestStaffDTO createAccount = _staffService.createStaff(request);
+                return Ok(createAccount);
+            }
+            return Conflict("The user is existed");
+        }
+
+        [HttpDelete("Staff/{id}")]
+        public IActionResult DeleteStaff(int id)
+        {
+            staff checkExisted = _staffService.checkStaffExistedByID(id);
+            if (checkExisted != null)
+            {
+                bool deleteAccount = _staffService.DeleteStaff(id);
+                return Ok("Delete " + checkExisted.Email + " successfully");
+            }
+            return NotFound("The user not found");
+        }
+
+        [HttpGet("Package/total")]
+        public IActionResult CountPackage()
+        {
+            int countPackage = _packageService.CountPackage();
+            return Ok(countPackage);
+        }
+
+        [HttpGet("Package")]
+        public IActionResult GetAllPackages()
+        {
+            var package = _packageService.GetAllPackages();
+            if (package != null)
+            {
+                return Ok(package);
+            }
+            return NotFound();
+        }
+
+        [HttpGet("Package/{id}")]
+        public IActionResult GetPackage(int id)
+        {
+            var package = _packageService.GetPackageById(id);
+            if (package != null)
+            {
+                return Ok(package);
+            }
+            return NotFound();
+        }
+
+        [HttpPost("Package")]
+        public IActionResult CreatePackage([FromBody] RequestPackageCreateDTO request)
+        {
+            var package = _packageService.CreatePackage(request);
+            if (package != null)
+            {
+                return Ok(package);
+            }
+            return NotFound();
+        }
+        [HttpDelete("Package")]
+        public IActionResult DeletePackage(int id)
+        {
+            var checkExisted = _partyHostService.checkPackageExisted(id);
+            if (checkExisted != null)
+            {
+                return Conflict("The package has been used");
+            }
+            bool deletePackage = _packageService.deletePackage(id);
+            return Ok("Delete package successfully");
+        }
+
+        [HttpPut("Package")]
+        public IActionResult UpdatePackage(RequestPackageUpdateDTO request)
+        {
+            var checkExisted = _packageService.GetPackageByID(request.PackageId);
+            if (checkExisted != null)
+            {
+                RequestPackageUpdateDTO updatePackage = _packageService.UpdatePackage(request);
+                return Ok("Update package successfully");
+            }
+            return NotFound();
         }
     }
 }

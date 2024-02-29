@@ -20,6 +20,9 @@ namespace DAO
             CreateMap<RequestAccountLoginDTO, staff>();
             CreateMap<RequestAccountLoginDTO, PartyHost>();
             CreateMap<RequestMenuPartyHostDTO, MenuPartyHost>();
+            CreateMap<RequestStaffDTO, staff>();
+            CreateMap<RequestPackageCreateDTO, Package>();
+            CreateMap<RequestPackageUpdateDTO, Package>();
         }
     }
 }

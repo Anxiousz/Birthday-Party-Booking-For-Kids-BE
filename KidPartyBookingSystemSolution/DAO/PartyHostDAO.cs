@@ -122,5 +122,10 @@ namespace DAO
             PartyHost partyHost = mapper.Map<PartyHost>(request);
             return dbContext.PartyHosts.FirstOrDefault(a => a.Email.Equals(partyHost.Email.Trim()) && a.Password.Equals(partyHost.Password.Trim()));
         }
+
+        public PartyHost checkPackageExisted(int id)
+        {
+            return dbContext.PartyHosts.FirstOrDefault(a => a.PackageId == id);
+        }
     }
 }

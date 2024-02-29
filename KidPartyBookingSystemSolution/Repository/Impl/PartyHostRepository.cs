@@ -57,5 +57,9 @@ namespace Repository.Impl
         {
             return partyHostDAO.GetPartyHostAccount(request);
         }
+        public PartyHost checkPackageExisted(int id)
+        {
+            return partyHostDAO.checkPackageExisted(id);
+        }
     }
 }

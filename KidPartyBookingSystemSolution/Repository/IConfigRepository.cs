@@ -13,5 +13,6 @@ namespace Services
         public RequestConfigDTO CreateConfig(RequestConfigDTO request);
         public Config checkConfigByID(int id);
         public RequestUpdateConfigDTO UpdateConfig(RequestUpdateConfigDTO request);
+        public List<Config> GetConfig();
     }
 }

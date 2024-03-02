@@ -64,5 +64,9 @@ namespace Services.Impl
             }
             return configRepository.UpdateConfig(request);
         }
+        public List<Config> GetConfig()
+        {
+            return configRepository.GetConfig();
+        }
     }
 }

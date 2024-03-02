@@ -273,5 +273,26 @@ namespace KidPartyBookingSystem.Controllers
             }
             return NotFound();
         }
+
+        [HttpGet("Config")]
+        public IActionResult GetConfig()
+        {
+            var config = _configService.GetConfig();
+            if (config != null)
+            {
+                return Ok(config);
+            }
+            return NotFound();
+        }
+        [HttpGet("Config/{id}")]
+        public IActionResult GetConfigByID(int id)
+        {
+            var config = _configService.checkConfigByID(id);
+            if (config != null)
+            {
+                return Ok(config);
+            }
+            return NotFound();
+        }
     }
 }

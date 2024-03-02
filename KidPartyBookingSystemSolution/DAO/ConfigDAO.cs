@@ -70,5 +70,10 @@ namespace DAO
             dbContext.SaveChanges();
             return request;
         }
+
+        public List<Config> GetConfig()
+        {
+            return dbContext.Configs.ToList();
+        }
     }
 }

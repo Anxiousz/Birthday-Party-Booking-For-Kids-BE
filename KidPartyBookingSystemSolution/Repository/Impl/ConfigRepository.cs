@@ -29,5 +29,9 @@ namespace Services.Impl
         {
             return configDAO.UpdateConfig(request);
         }
+        public List<Config> GetConfig()
+        {
+            return configDAO.GetConfig();
+        }
     }
 }

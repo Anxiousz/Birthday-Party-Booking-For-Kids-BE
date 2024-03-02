@@ -101,10 +101,18 @@ namespace KidPartyBookingSystem.Controllers
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
+            var claims = new List<Claim>
+                        {
+                            new Claim("UserId", userInfo.AccountId.ToString()),
+                            new Claim("Email", userInfo.Email),
+                            new Claim("UserName", userInfo.UserName),
+                            new Claim("Password", userInfo.Password),
+                            new Claim(ClaimTypes.Role, userInfo.Role),
+                            new Claim("Phone", userInfo.Phone),
+                        };
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
-              _config["Jwt:Issuer"],
-              null,
+              _config["Jwt:Audience"],
+              claims,
               expires: DateTime.Now.AddMinutes(120),
               signingCredentials: credentials);
 
@@ -136,10 +144,18 @@ namespace KidPartyBookingSystem.Controllers
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
+            var claims = new List<Claim>
+                        {
+                            new Claim("UserId", userInfo.StaffId.ToString()),
+                            new Claim("Email", userInfo.Email),
+                            new Claim("UserName", userInfo.UserName),
+                            new Claim("Password", userInfo.Password),
+                            new Claim(ClaimTypes.Role, userInfo.Role),
+                            new Claim("Phone", userInfo.Phone),
+                        };
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
-              _config["Jwt:Issuer"],
-              null,
+               _config["Jwt:Audience"],
+              claims,
               expires: DateTime.Now.AddMinutes(120),
               signingCredentials: credentials);
 
@@ -171,10 +187,19 @@ namespace KidPartyBookingSystem.Controllers
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            var claims = new List<Claim>
+                        {
+                            new Claim("UserId", userInfo.PartyHostId.ToString()),
+                            new Claim("Email", userInfo.Email),
+                            new Claim("UserName", userInfo.UserName),
+                            new Claim("Password", userInfo.Password),
+                            new Claim(ClaimTypes.Role, userInfo.Role),
+                            new Claim("Phone", userInfo.Phone),
+                        };
 
             var token = new JwtSecurityToken(_config["Jwt:Issuer"],
-              _config["Jwt:Issuer"],
-              null,
+               _config["Jwt:Audience"],
+              claims,
               expires: DateTime.Now.AddMinutes(120),
               signingCredentials: credentials);
 

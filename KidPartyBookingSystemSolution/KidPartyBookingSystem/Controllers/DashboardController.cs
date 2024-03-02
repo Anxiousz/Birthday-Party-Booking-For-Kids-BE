@@ -13,19 +13,23 @@ namespace KidPartyBookingSystem.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-    [Authorize(Roles = "1")]
+    //[Authorize(Roles = "1")]
     public class DashboardController : ControllerBase
     {
         private IRegisteredUserService _registeredUserService;
         private IPartyHostService _partyHostService;
         private IStaffService _staffService;
         private IPackageService _packageService;
-        public DashboardController(IRegisteredUserService registeredUserService, IPartyHostService partyHostService, IStaffService staffService, IPackageService packageService)
+        private IBookingService _bookingService;
+        private IConfigService _configService;
+        public DashboardController(IRegisteredUserService registeredUserService, IPartyHostService partyHostService, IStaffService staffService, IPackageService packageService, IBookingService bookingService, IConfigService configService)
         {
             _registeredUserService = registeredUserService;
             _partyHostService = partyHostService;
             _staffService = staffService;
             _packageService = packageService;
+            _bookingService = bookingService;
+            _configService = configService;
         }
 
         [HttpGet("RegisteredUser")]
@@ -232,6 +236,40 @@ namespace KidPartyBookingSystem.Controllers
             {
                 RequestPackageUpdateDTO updatePackage = _packageService.UpdatePackage(request);
                 return Ok("Update package successfully");
+            }
+            return NotFound();
+        }
+
+        [HttpGet("Order")]
+        public IActionResult ViewOrder()
+        {
+            var booking = _bookingService.GetOrders();
+            if (booking != null)
+            {
+                return Ok(booking);
+            }
+            return NotFound();
+        }
+
+        [HttpPost("Config")]
+        public IActionResult CreateConfig([FromBody] RequestConfigDTO request)
+        {
+            var config = _configService.CreateConfig(request);
+            if (config != null)
+            {
+                return Ok(config);
+            }
+            return BadRequest();
+        }
+
+        [HttpPut("Config")]
+        public IActionResult UpdateConfig([FromBody] RequestUpdateConfigDTO request)
+        {
+            var checkExisted = _configService.checkConfigByID(request.ConfigId);
+            if (checkExisted != null)
+            {
+                var UpdateConfig = _configService.UpdateConfig(request);
+                return Ok(UpdateConfig);
             }
             return NotFound();
         }

@@ -88,5 +88,9 @@ namespace DAO
             }
         }
 
+        public List<Booking> GetOrders()
+        {
+            return dbContext.Bookings.ToList();
+        }
     }
 }

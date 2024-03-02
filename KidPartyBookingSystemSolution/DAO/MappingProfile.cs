@@ -23,6 +23,8 @@ namespace DAO
             CreateMap<RequestStaffDTO, staff>();
             CreateMap<RequestPackageCreateDTO, Package>();
             CreateMap<RequestPackageUpdateDTO, Package>();
+            CreateMap<RequestConfigDTO, Config>();
+            CreateMap<RequestUpdateConfigDTO, Config>();
         }
     }
 }

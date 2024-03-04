@@ -1,4 +1,7 @@
-﻿using BusinessObjects;
+﻿using AutoMapper;
+using Azure.Core;
+using BusinessObjects;
+using BusinessObjects.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,12 +61,27 @@ namespace DAO
         }
 
         // Create Room By Id 
-        public void CreateNewRoom(Room room)
+        public RequestRoomDTO CreateNewRoom( RequestRoomDTO roomRequest)
         {
             try
             {
-                dbContext.Rooms.Add(room);
-                dbContext.SaveChanges();
+                var config = new MapperConfiguration(cfg =>
+                {
+                    cfg.AddProfile<MappingProfile>();
+                });
+                IMapper mapper = config.CreateMapper();
+                Room room = mapper.Map<Room>(roomRequest);
+                if (dbContext.PartyHosts.Any(p => p.PartyHostId == room.PartyHostId))
+                {
+                    room.Status = 1;
+                    dbContext.Rooms.Add(room);
+                    dbContext.SaveChanges();
+                    return roomRequest;
+                }
+                else
+                {
+                    throw new Exception("Giá trị 'PartyHostId' không hợp lệ.");
+                }
             }
             catch (Exception ex)
             {
@@ -90,38 +108,58 @@ namespace DAO
             }
         }
 
-        //Update Room
-        public bool UpdateRoom(int id, Room updatedRoom)
+        // Update Room
+        public bool UpdateRoom(int id, RequestRoomDTO updatedRoom)
         {
-            bool result = false;
-            Room room = getRoomById(id);
             try
             {
+                // Lấy thông tin phòng hiện tại từ cơ sở dữ liệu
+                Room room = getRoomById(id);
+
                 if (room != null)
                 {
-                    room = new Room
+                    var config = new MapperConfiguration(cfg =>
                     {
-                        PartyHostId = room.PartyHostId,
-                        RoomName = updatedRoom.RoomName,
-                        RoomType = room.RoomType,
-                        Capacity = updatedRoom.Capacity,
-                        TimeStart = updatedRoom.TimeStart,
-                        TimeEnd = updatedRoom.TimeEnd,
-                        Location = updatedRoom.Location,
-                        Price = updatedRoom.Price,
-                        Note = updatedRoom.Note,
-                        Status = 0
-                    };
-                    dbContext.Update(room);
-                    dbContext.SaveChanges();
-                    return result = true;
+                        cfg.AddProfile<MappingProfile>();
+                    });
+                    IMapper mapper = config.CreateMapper();
+                    Room updatedRoomEntity = mapper.Map<Room>(updatedRoom);
+
+                    // Kiểm tra giá trị PartyHostId trong bảng PartyHosts
+                    if (dbContext.PartyHosts.Any(p => p.PartyHostId == updatedRoomEntity.PartyHostId))
+                    {
+                        // Cập nhật thông tin của phòng
+                        room.RoomName = updatedRoomEntity.RoomName;
+                        room.RoomType = updatedRoomEntity.RoomType;
+                        room.Capacity = updatedRoomEntity.Capacity;
+                        room.TimeStart = updatedRoomEntity.TimeStart;
+                        room.TimeEnd = updatedRoomEntity.TimeEnd;
+                        room.Location = updatedRoomEntity.Location;
+                        room.Price = updatedRoomEntity.Price;
+                        room.Note = updatedRoomEntity.Note;
+                        room.Status = 1;  // Cập nhật trạng thái, bạn có thể điều chỉnh tùy theo yêu cầu của bạn
+
+                        // Lưu các thay đổi vào cơ sở dữ liệu
+                        dbContext.SaveChanges();
+
+                        return true;  // Trả về true để biểu thị rằng cập nhật thành công
+                    }
+                    else
+                    {
+                        throw new Exception("Giá trị 'PartyHostId' không hợp lệ.");
+                    }
                 }
-            } catch (Exception ex)
+                else
+                {
+                    throw new Exception("Không tìm thấy phòng với ID đã cho.");
+                }
+            }
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-            return result;  
         }
+
         // List All Room 
         public List<Room> GetRoomList()
         {
@@ -136,5 +174,7 @@ namespace DAO
             }
             return roomList;
         }
+
+        // 
     }
 }

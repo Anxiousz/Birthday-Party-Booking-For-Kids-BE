@@ -25,6 +25,7 @@ namespace DAO
             CreateMap<RequestPackageUpdateDTO, Package>();
             CreateMap<RequestConfigDTO, Config>();
             CreateMap<RequestUpdateConfigDTO, Config>();
+            CreateMap<RequestRoomDTO, Room>();
         }
     }
 }

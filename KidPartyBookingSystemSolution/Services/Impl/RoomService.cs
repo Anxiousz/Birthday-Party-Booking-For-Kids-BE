@@ -27,5 +27,7 @@ namespace Services.Impl
         public bool UpdateRoom(int id, Room updatedRoom) => roomRepository.UpdateRoom(id, updatedRoom);
 
         public void UpdateStatusRoom(Room room) => roomRepository.UpdateStatusRoom(room);
+        
+        public List<Room> GetRoomList() => roomRepository.GetRoomList();
     }
 }

@@ -14,5 +14,6 @@ namespace Services
         public void CreateNewRoom(Room room);
         public void UpdateStatusRoom(Room room);
         public bool UpdateRoom(int id, Room updatedRoom);
+        public List<Room> GetRoomList();
     }
 }

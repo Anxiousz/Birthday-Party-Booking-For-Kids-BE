@@ -1,11 +1,14 @@
 ﻿using BusinessObjects;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Services;
 
 namespace KidPartyBookingSystem.Controllers
 {
     [ApiController]
-    [Route("v1/api/[Controller]")]
+    [Route("api/v1/[Controller]")]
+    //[Authorize (Roles = "3")]
     public class RoomController : ControllerBase
     {
         private IConfiguration _config;
@@ -17,7 +20,7 @@ namespace KidPartyBookingSystem.Controllers
         }
 
         // Get Room By ID ( Party host )
-        [HttpGet("{id}")]
+        [HttpGet("GetRoomPartyHost/{id}")]
         public IActionResult Get(int id)
         {
             var listRoom = _roomService.GetAllRoomById(id);
@@ -29,7 +32,7 @@ namespace KidPartyBookingSystem.Controllers
         }
 
         // Update Status Room ID 
-        [HttpPost("{id}")]
+        [HttpPost("UpdateStatus/{id}")]
         [ActionName("UpdateStatusRoom")]
         public IActionResult UpdateStatus(int id)
         {
@@ -69,7 +72,7 @@ namespace KidPartyBookingSystem.Controllers
         }*/
 
         // Update Room By ID
-        [HttpPut("{id}")]
+        [HttpPut("Update/{id}")]
         [ActionName("UpdateRoom")]
         public IActionResult UpdateRoom(int id, [FromBody] Room updateRoom)
         {
@@ -93,6 +96,23 @@ namespace KidPartyBookingSystem.Controllers
             catch (Exception ex)
             {
                 return StatusCode(500, $"An error occured:{ex.Message}");
+            }
+        }
+
+        // Get All Room
+        [HttpGet("GetAllRoom")]
+        [ActionName("Get All Room")]
+        [EnableCors]
+        public IActionResult GetRoom()
+        {
+            var roomList = _roomService.GetRoomList();
+            if (roomList == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(roomList);
             }
         }
     }

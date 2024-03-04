@@ -29,7 +29,7 @@ namespace KidPartyBookingSystem.Controllers
             return Ok(menuPartyHost);
         }
 
-        [HttpGet("/MenuPartyHost/{id}")]
+        [HttpGet("GetOneFood/{id}")]
         [ActionName("Get One Food By Menu Party Host")]
         public IActionResult GetMenuFoodById(int id)
         {
@@ -41,7 +41,7 @@ namespace KidPartyBookingSystem.Controllers
             return Ok(food);
         }
 
-        [HttpDelete("/MenuPartyHost/{id}")]
+        [HttpDelete("Delete/{id}")]
         [ActionName("Delete Food Menu By Party Host")]
         public IActionResult DeleteMenuFoodById(int id)
         {

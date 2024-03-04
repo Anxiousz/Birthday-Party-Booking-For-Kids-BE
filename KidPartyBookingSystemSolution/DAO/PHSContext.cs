@@ -39,6 +39,7 @@ namespace BusinessObjects
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(GetConnectionString());
+
             }
         }
         private string GetConnectionString()

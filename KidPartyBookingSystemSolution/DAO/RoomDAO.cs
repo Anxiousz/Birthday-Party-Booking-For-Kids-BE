@@ -122,5 +122,19 @@ namespace DAO
             }
             return result;  
         }
+        // List All Room 
+        public List<Room> GetRoomList()
+        {
+            List<Room> roomList = null;
+            try
+            {
+                roomList = dbContext.Rooms.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return roomList;
+        }
     }
 }

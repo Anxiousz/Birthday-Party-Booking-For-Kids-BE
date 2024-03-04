@@ -25,5 +25,7 @@ namespace Services.Impl
         public bool UpdateRoom(int id, Room updatedRoom) => roomDAO.UpdateRoom(id, updatedRoom);
 
         public void UpdateStatusRoom(Room room) => roomDAO.UpdateStatusRoom(room);
+
+        public List<Room> GetRoomList() => roomDAO.GetRoomList();
     }
 }

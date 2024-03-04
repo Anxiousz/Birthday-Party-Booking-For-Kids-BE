@@ -38,10 +38,7 @@ namespace BusinessObjects
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(GetConnectionString(), options => options.EnableRetryOnFailure());
-               
-
-
+                optionsBuilder.UseSqlServer(GetConnectionString());
 
             }
         }

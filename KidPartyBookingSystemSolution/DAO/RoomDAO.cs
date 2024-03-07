@@ -175,6 +175,6 @@ namespace DAO
             return roomList;
         }
 
-        // 
+        // View Detail
     }
 }

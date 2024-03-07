@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessObjects.Request;
+using BusinessObjects.Response;
 
 namespace Services.Impl
 {
@@ -16,5 +18,9 @@ namespace Services.Impl
         {
             feedBackRepository = new FeedBackRepository();
         }
+
+        public Task<bool> CreateFeedback(RequestFeedbackDTO feedback) => feedBackRepository.CreateFeedback(feedback);
+
+        public Task<ReponseFeedbackDTO> GetFeedbackById(int feedback) => feedBackRepository.GetFeedbackById(feedback);
     }
 }

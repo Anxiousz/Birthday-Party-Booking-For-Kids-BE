@@ -44,6 +44,7 @@ namespace DAO
             return dbContext.staff.FirstOrDefault(a => a.Email.Equals(staff.Email.Trim()) && a.Password.Equals(staff.Password.Trim()));
         }
 
+
         public List<staff> GetStaff()
         {
             return dbContext.staff.ToList();

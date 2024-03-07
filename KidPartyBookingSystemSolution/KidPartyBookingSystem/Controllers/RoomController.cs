@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using BusinessObjects.Request;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -74,7 +75,7 @@ namespace KidPartyBookingSystem.Controllers
         // Update Room By ID
         [HttpPut("Update/{id}")]
         [ActionName("UpdateRoom")]
-        public IActionResult UpdateRoom(int id, [FromBody] Room updateRoom)
+        public IActionResult UpdateRoom(int id, [FromBody] RequestRoomDTO updateRoom)
         {
             var room = _roomService.getRoomById(id);
             if (room == null)
@@ -89,7 +90,7 @@ namespace KidPartyBookingSystem.Controllers
             {
                 if (!_roomService.UpdateRoom(id, updateRoom))
                 {
-                    return Ok();
+                    return Ok("Update Successfully!");
                 }
                 return BadRequest("Chua the update phong");
             }
@@ -114,6 +115,26 @@ namespace KidPartyBookingSystem.Controllers
             {
                 return Ok(roomList);
             }
+        }
+
+        // Create New Room 
+        [HttpPost("Create")]
+        [ActionName("Create New Room")]
+        public IActionResult CreateNewRoom([FromBody] RequestRoomDTO roomRequest)
+        {
+            try
+            {
+                if (roomRequest != null)
+                {
+                    _roomService.CreateNewRoom(roomRequest);
+                    return Ok("Room Added Successfully!");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
+            return StatusCode(500, "You have some error! Please check it again");
         }
     }
 }

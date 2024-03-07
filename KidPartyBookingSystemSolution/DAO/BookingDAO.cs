@@ -92,5 +92,28 @@ namespace DAO
         {
             return dbContext.Bookings.ToList();
         }
+
+        public void createBooking(Booking newBooking)
+        {   
+            Booking booking = null;
+            try
+            {
+                booking = new Booking()
+                {
+                    RoomId = newBooking.RoomId,
+                    AccId = newBooking.AccId,
+                    MenuOrderId = newBooking.MenuOrderId,
+                    TransactionId = newBooking.TransactionId,
+                    BookingDate = DateTime.Now,
+                    BookingStatus = 0
+                };
+                dbContext.Bookings.Add(booking);
+                dbContext.SaveChanges();
+            } catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
     }
 }

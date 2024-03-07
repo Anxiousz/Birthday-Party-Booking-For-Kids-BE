@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using BusinessObjects.Request;
 using DAO;
 using System;
 using System.Collections.Generic;
@@ -16,16 +17,16 @@ namespace Services.Impl
             roomDAO = new RoomDAO();
         }
 
-        public void CreateNewRoom(Room room) => roomDAO.CreateNewRoom(room);
-
         public List<Room> GetAllRoomById(int id) => roomDAO.GetAllRoomById(id);
 
         public Room getRoomById(int id) => roomDAO.getRoomById(id);
 
-        public bool UpdateRoom(int id, Room updatedRoom) => roomDAO.UpdateRoom(id, updatedRoom);
-
         public void UpdateStatusRoom(Room room) => roomDAO.UpdateStatusRoom(room);
 
         public List<Room> GetRoomList() => roomDAO.GetRoomList();
+
+        public RequestRoomDTO CreateNewRoom(RequestRoomDTO roomRequest) => roomDAO.CreateNewRoom(roomRequest);
+
+        public bool UpdateRoom(int id, RequestRoomDTO updatedRoom) => roomDAO.UpdateRoom(id, updatedRoom);
     }
 }

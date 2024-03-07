@@ -1,4 +1,6 @@
-﻿using DAO;
+﻿using BusinessObjects.Request;
+using BusinessObjects.Response;
+using DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +16,9 @@ namespace Services.Impl
         {
             feedBackDAO = new FeedBackDAO();
         }
+
+        public Task<bool> CreateFeedback(RequestFeedbackDTO feedback) => feedBackDAO.CreateFeedback(feedback);
+
+        public Task<ReponseFeedbackDTO> GetFeedbackById(int feedback) => feedBackDAO.GetFeedbackById(feedback);
     }
 }

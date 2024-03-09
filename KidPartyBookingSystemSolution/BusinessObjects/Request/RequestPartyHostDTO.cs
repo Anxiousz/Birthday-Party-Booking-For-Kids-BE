@@ -14,7 +14,7 @@ namespace BusinessObjects.Request
         public string Password { get; set; }
         public DateTime BirthDay { get; set; }
         public string Phone { get; set; }
-        public bool? Gender { get; set; }
+        public string Gender { get; set; }
         public string Address { get; set; }
         public int? PackageId { get; set; }
     }

@@ -91,16 +91,15 @@ namespace DAO
                 cfg.AddProfile<MappingProfile>();
             });
             IMapper mapper = config.CreateMapper();
-            PartyHost staffToUpdate = mapper.Map<PartyHost>(request);
-            var existingEntity = dbContext.Set<PartyHost>().Local.FirstOrDefault(e => e.StaffId == staffToUpdate.StaffId);
+            PartyHost partyHostToUpdate = mapper.Map<PartyHost>(request);
+            var existingEntity = dbContext.Set<PartyHost>().Local.FirstOrDefault(e => e.StaffId == partyHostToUpdate.StaffId);
             if (existingEntity != null)
             {
-                existingEntity.Status = 1;
-                existingEntity.Role = "3";
                 dbContext.Entry(existingEntity).State = EntityState.Detached;
             }
-
-            dbContext.Entry(staffToUpdate).State = EntityState.Modified;
+            partyHostToUpdate.Status = 1;
+            partyHostToUpdate.Role = "3";
+            dbContext.Entry(partyHostToUpdate).State = EntityState.Modified;
             dbContext.SaveChanges();
             return request;
         }

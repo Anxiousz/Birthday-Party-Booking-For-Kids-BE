@@ -16,7 +16,7 @@ namespace Services
         public bool DeleteRegisteredUser(int id);
         public bool checkRegisteredUserExistedByEmail(string email); 
         public RegisteredUser checkRegisteredUserExistedByID(int id);
-        public RegisteredUser UpdateRegisteredUser(RegisteredUser request);
+        public RequestUpdateRegisteredUserDTO UpdateRegisteredUser(RequestUpdateRegisteredUserDTO request);
         public int CountRegisteredUser();
         public List<RegisteredUser> searchRegisteredUser(string context);
         public RegisteredUser GetRegisteredUserAccount(RequestAccountLoginDTO request);

@@ -29,6 +29,8 @@ namespace DAO
             CreateMap<RequestRoomDTO, Room>();
             CreateMap<RequestPostDTO, Post>();
             CreateMap<RequestVoucherDTO, Voucher>();
+            CreateMap<RequestUpdateRegisteredUserDTO, RegisteredUser>();
+            CreateMap<RequestUpdatePartyHostDTO, PartyHost>();
         }
     }
 }

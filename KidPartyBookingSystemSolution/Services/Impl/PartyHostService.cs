@@ -43,7 +43,7 @@ namespace Services.Impl
         {
             return partyHostRepository.checkPartyHostExistedByID(id);
         }
-        public PartyHost UpdatePartyHost(PartyHost request)
+        public RequestUpdatePartyHostDTO UpdatePartyHost(RequestUpdatePartyHostDTO request)
         {
             return partyHostRepository.UpdatePartyHost(request);
         }

@@ -41,7 +41,7 @@ namespace Repository.Impl
         {
             return registeredUserDAO.checkRegisteredUserExistedByID(id);
         }
-        public RegisteredUser UpdateRegisteredUser(RegisteredUser request)
+        public RequestUpdateRegisteredUserDTO UpdateRegisteredUser(RequestUpdateRegisteredUserDTO request)
         {
             return registeredUserDAO.UpdateRegisteredUser(request);
         }

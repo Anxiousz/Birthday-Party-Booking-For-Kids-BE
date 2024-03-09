@@ -43,7 +43,7 @@ namespace Services.Impl
         {
             return registeredUserRepository.checkRegisteredUserExistedByID(id);
         }
-        public RegisteredUser UpdateRegisteredUser(RegisteredUser request)
+        public RequestUpdateRegisteredUserDTO UpdateRegisteredUser(RequestUpdateRegisteredUserDTO request)
         {
             return registeredUserRepository.UpdateRegisteredUser(request);
         }

@@ -84,18 +84,26 @@ namespace DAO
             return isDeleted;
         }
 
-        public RegisteredUser UpdateRegisteredUser(RegisteredUser request)
+        public RequestUpdateRegisteredUserDTO UpdateRegisteredUser(RequestUpdateRegisteredUserDTO request)
         {
-            RegisteredUser checkExisted = checkRegisteredUserExistedByID(request.AccountId);
-            if (checkExisted != null)
+            var config = new MapperConfiguration(cfg =>
             {
-                dbContext.Entry(checkExisted).CurrentValues.SetValues(request);
-                dbContext.Entry(checkExisted).State = EntityState.Modified;
-                dbContext.SaveChanges();
+                cfg.AddProfile<MappingProfile>();
+            });
+            IMapper mapper = config.CreateMapper();
+            RegisteredUser userToUpdate = mapper.Map<RegisteredUser>(request);
+            var existingEntity = dbContext.Set<RegisteredUser>().Local.FirstOrDefault(e => e.AccountId == userToUpdate.AccountId);
+            if (existingEntity != null)
+            {
+                existingEntity.Status = 1;
+                existingEntity.Role = "4";
+                dbContext.Entry(existingEntity).State = EntityState.Detached;
             }
+
+            dbContext.Entry(userToUpdate).State = EntityState.Modified;
+            dbContext.SaveChanges();
             return request;
         }
-
         public int CountRegisteredUser()
         {
             return dbContext.RegisteredUsers.Count();

@@ -15,7 +15,7 @@ namespace Services
         public bool DeletePartyHost(int id);
         public bool checkPartyHostExistedByEmail(string email);
         public PartyHost checkPartyHostExistedByID(int id);
-        public PartyHost UpdatePartyHost(PartyHost request);
+        public RequestUpdatePartyHostDTO UpdatePartyHost(RequestUpdatePartyHostDTO request);
         public int CountPartyHost();
         public List<PartyHost> searchPartyHost(string context);
         public PartyHost GetPartyHostAccount(RequestAccountLoginDTO request);

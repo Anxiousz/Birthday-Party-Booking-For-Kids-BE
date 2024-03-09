@@ -84,15 +84,24 @@ namespace DAO
             return isDeleted;
         }
 
-        public PartyHost UpdatePartyHost(PartyHost request)
+        public RequestUpdatePartyHostDTO UpdatePartyHost(RequestUpdatePartyHostDTO request)
         {
-            PartyHost checkExisted = checkPartyHostExistedByID(request.PartyHostId);
-            if (checkExisted != null)
+            var config = new MapperConfiguration(cfg =>
             {
-                dbContext.Entry(checkExisted).CurrentValues.SetValues(request);
-                dbContext.Entry(checkExisted).State = EntityState.Modified;
-                dbContext.SaveChanges();
+                cfg.AddProfile<MappingProfile>();
+            });
+            IMapper mapper = config.CreateMapper();
+            PartyHost staffToUpdate = mapper.Map<PartyHost>(request);
+            var existingEntity = dbContext.Set<PartyHost>().Local.FirstOrDefault(e => e.StaffId == staffToUpdate.StaffId);
+            if (existingEntity != null)
+            {
+                existingEntity.Status = 1;
+                existingEntity.Role = "3";
+                dbContext.Entry(existingEntity).State = EntityState.Detached;
             }
+
+            dbContext.Entry(staffToUpdate).State = EntityState.Modified;
+            dbContext.SaveChanges();
             return request;
         }
 

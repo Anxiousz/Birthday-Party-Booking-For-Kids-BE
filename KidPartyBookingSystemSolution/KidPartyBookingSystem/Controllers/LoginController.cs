@@ -47,7 +47,7 @@ namespace KidPartyBookingSystem.Controllers
             if (user != null)
             {
                 var tokenString = GenerateAdminJSONWebToken(user);
-                response = Ok(new { token = tokenString });
+                response = Ok(new { token = tokenString, username = user.UserName });
             }
 
             return response;
@@ -90,7 +90,7 @@ namespace KidPartyBookingSystem.Controllers
             if (user != null)
             {
                 var tokenString = GenerateRegisteredUserJSONWebToken(user);
-                response = Ok(new { token = tokenString });
+                response = Ok(new { token = tokenString, username = user.UserName });
             }
 
             return response;
@@ -133,7 +133,7 @@ namespace KidPartyBookingSystem.Controllers
             if (user != null)
             {
                 var tokenString = GenerateStaffJSONWebToken(user);
-                response = Ok(new { token = tokenString });
+                response = Ok(new { token = tokenString, username = user.UserName });
             }
 
             return response;
@@ -176,7 +176,7 @@ namespace KidPartyBookingSystem.Controllers
             if (user != null)
             {
                 var tokenString = GeneratePartyHostJSONWebToken(user);
-                response = Ok(new { token = tokenString });
+                response = Ok(new { token = tokenString, username = user.UserName });
             }
 
             return response;

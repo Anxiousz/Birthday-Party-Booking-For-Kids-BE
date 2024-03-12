@@ -22,7 +22,8 @@ namespace KidPartyBookingSystem.Controllers
         private IPackageService _packageService;
         private IBookingService _bookingService;
         private IConfigService _configService;
-        public DashboardController(IRegisteredUserService registeredUserService, IPartyHostService partyHostService, IStaffService staffService, IPackageService packageService, IBookingService bookingService, IConfigService configService)
+        private IRoomService _roomService;
+        public DashboardController(IRegisteredUserService registeredUserService, IPartyHostService partyHostService, IStaffService staffService, IPackageService packageService, IBookingService bookingService, IConfigService configService, IRoomService roomService)
         {
             _registeredUserService = registeredUserService;
             _partyHostService = partyHostService;
@@ -30,6 +31,7 @@ namespace KidPartyBookingSystem.Controllers
             _packageService = packageService;
             _bookingService = bookingService;
             _configService = configService;
+            _roomService = roomService;
         }
 
         [HttpGet("RegisteredUser")]
@@ -293,6 +295,13 @@ namespace KidPartyBookingSystem.Controllers
                 return Ok(config);
             }
             return NotFound();
+        }
+
+        [HttpGet("Room/total")]
+        public IActionResult CountRoom()
+        {
+            int countRoom = _roomService.GetRoomList().Count();
+            return Ok(countRoom);
         }
     }
 }

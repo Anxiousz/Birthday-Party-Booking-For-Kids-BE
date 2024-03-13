@@ -9,7 +9,7 @@ namespace Services
 {
     public interface IMenuPartyHostService
     {
-        public List<MenuPartyHost> getListMenuPartyHost(int id);
+        public List<MenuPartyHost> getListMenuPartyHost(int?id);
         public MenuPartyHost getMenuPartyHostFoodById(int id);
         public void createNewMenuPartyHost(MenuPartyHost foodMenu);
         public bool updateMenuPartyHost(int id, MenuPartyHost updatedMenuPartyHost);

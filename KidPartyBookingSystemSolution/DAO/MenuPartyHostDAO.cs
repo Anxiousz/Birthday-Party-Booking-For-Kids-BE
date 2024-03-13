@@ -9,7 +9,7 @@ namespace DAO
 {
     public class MenuPartyHostDAO
     {
-        private MenuOrderDAO menuOrderDAO;
+        //private MenuOrderDAO menuOrderDAO = new MenuOrderDAO();
         private static MenuPartyHostDAO instance = null;
         private readonly PHSContext dbContext = null;
         public MenuPartyHostDAO()
@@ -18,7 +18,6 @@ namespace DAO
             {
                 dbContext = new PHSContext();
             }
-            menuOrderDAO = new MenuOrderDAO();
         }
 
         public static MenuPartyHostDAO Instance
@@ -33,7 +32,7 @@ namespace DAO
             }
         }
         // Get Menu Party Host 
-        public List<MenuPartyHost> getListMenuPartyHost(int id)
+        public List<MenuPartyHost> getListMenuPartyHost(int?id)
         {
             try
             {
@@ -77,7 +76,7 @@ namespace DAO
         {
             bool result = false;
             MenuPartyHost food = getMenuPartyHostFoodById((int)id);
-            if (menuOrderDAO.checkFoodInstance(id) == true)
+            /*if (menuOrderDAO.checkFoodInstance(id) == true)
             {
                 food = new MenuPartyHost
                 {
@@ -89,7 +88,7 @@ namespace DAO
                 dbContext.Update(food);
                 dbContext.SaveChanges();
                 result = true;
-            }
+            }*/
             return result;
         }
 
@@ -98,12 +97,12 @@ namespace DAO
         {
             bool result = false;
             MenuPartyHost food = getMenuPartyHostFoodById(id);
-            if(menuOrderDAO.checkFoodInstance(id) == true && food != null)
+            /*if(menuOrderDAO.checkFoodInstance(id) == true && food != null)
             {
                 dbContext.Remove(food);
                 dbContext.SaveChanges();
                 result = true;
-            }
+            }*/
             return false;
         }
     }

@@ -30,5 +30,7 @@ namespace Services.Impl
         public RequestRoomDTO CreateNewRoom(RequestRoomDTO roomRequest) => roomRepository.CreateNewRoom(roomRequest);
 
         public bool UpdateRoom(int id, RequestRoomDTO updatedRoom) => roomRepository.UpdateRoom(id, updatedRoom);
+
+        public Room SearchRoom(string context) => roomRepository.SearchRoom(context);
     }
 }

@@ -175,6 +175,19 @@ namespace DAO
             return roomList;
         }
 
-        // View Detail
+        // SearchRoom
+        public Room SearchRoom( string context)
+        {
+            Room room = null;
+            try
+            {
+                
+                room = dbContext.Rooms.FirstOrDefault(r => r.RoomName.Equals(context));
+            } catch(Exception ex)
+            {
+                throw new Exception (ex.Message);
+            }
+            return room;
+        }
     }
 }

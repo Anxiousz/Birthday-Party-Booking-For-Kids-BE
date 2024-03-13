@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Services;
 
@@ -11,17 +12,18 @@ namespace KidPartyBookingSystem.Controllers
     {
         private static String NOT_FOUND = "Hien tai khong tim thay du lieu";
         private IMenuPartyHostService _menuPartyHostService;
-
-        public MenuPartyHostController(IMenuPartyHostService menuPartyHostService)
+        private IConfiguration _config;
+        public MenuPartyHostController(IMenuPartyHostService menuPartyHostService, IConfiguration config)
         {
             _menuPartyHostService = menuPartyHostService;
+            _config = config;
         }
 
-        [HttpGet("{id}")]
-        [ActionName("Get All Menu Party Host")]
-        public IActionResult GetAllMenuById(int id)
+        // Get Menu Party Host
+        [HttpGet("PartyHostId")]
+        public IActionResult GetMenuPartyHost(int? partyHostid)
         {
-            var menuPartyHost = _menuPartyHostService.getListMenuPartyHost(id);
+            var menuPartyHost = _menuPartyHostService.getListMenuPartyHost(partyHostid);
             if (menuPartyHost == null)
             {
                 return NotFound(NOT_FOUND);
@@ -30,7 +32,6 @@ namespace KidPartyBookingSystem.Controllers
         }
 
         [HttpGet("GetOneFood/{id}")]
-        [ActionName("Get One Food By Menu Party Host")]
         public IActionResult GetMenuFoodById(int id)
         {
             var food = _menuPartyHostService.getMenuPartyHostFoodById(id);
@@ -42,10 +43,9 @@ namespace KidPartyBookingSystem.Controllers
         }
 
         [HttpDelete("Delete/{id}")]
-        [ActionName("Delete Food Menu By Party Host")]
         public IActionResult DeleteMenuFoodById(int id)
         {
-           if(_menuPartyHostService.deleteMenuPartyHost(id) == true)
+            if (_menuPartyHostService.deleteMenuPartyHost(id) == true)
             {
                 return Ok();
             }

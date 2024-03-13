@@ -22,7 +22,7 @@ namespace Services.Impl
 
         public bool deleteMenuPartyHost(int id) => menuPartyHostRepository.deleteMenuPartyHost(id);
 
-        public List<MenuPartyHost> getListMenuPartyHost(int id) => menuPartyHostRepository.getListMenuPartyHost(id);
+        public List<MenuPartyHost> getListMenuPartyHost(int?id) => menuPartyHostRepository.getListMenuPartyHost(id);
 
         public MenuPartyHost getMenuPartyHostFoodById(int id) => menuPartyHostRepository.getMenuPartyHostFoodById((int)id);
 

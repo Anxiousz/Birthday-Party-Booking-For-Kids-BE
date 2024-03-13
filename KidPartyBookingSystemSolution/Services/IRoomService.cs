@@ -16,5 +16,6 @@ namespace Services
         public void UpdateStatusRoom(Room room);
         public bool UpdateRoom(int id, RequestRoomDTO updatedRoom);
         public List<Room> GetRoomList();
+        public Room SearchRoom(string context);
     }
 }

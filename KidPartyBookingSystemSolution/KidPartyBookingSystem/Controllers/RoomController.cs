@@ -9,7 +9,7 @@ namespace KidPartyBookingSystem.Controllers
 {
     [ApiController]
     [Route("api/v1/[Controller]")]
-    //[Authorize (Roles = "3")]
+    [Authorize (Roles = "3")]
     public class RoomController : ControllerBase
     {
         private IConfiguration _config;
@@ -48,29 +48,6 @@ namespace KidPartyBookingSystem.Controllers
                 return Ok();
             }
         }
-
-        /*        // Remove Room By Room ID 
-        [HttpDelete("{id}")]
-        [ActionName("DeleteRoom")]
-        public IActionResult DeleteRoom(int id)
-        {
-            var room = _roomService.GetRoomByID(id);
-            if (room == null)
-            {
-                return NotFound();
-            }
-            try
-            {
-                if (_roomService.DeleteRoom(room) == true)
-                {
-                    return Ok();
-                }
-                return BadRequest("Khong the xoa phong khi phong dang hoat dong");    
-            } catch(Exception ex)
-            {
-                return StatusCode(500, $"An error occured :{ex.Message}");
-            }
-        }*/
 
         // Update Room By ID
         [HttpPut("Update/{id}")]
@@ -135,6 +112,35 @@ namespace KidPartyBookingSystem.Controllers
                 return BadRequest();
             }
             return StatusCode(500, "You have some error! Please check it again");
+        }
+
+        // Get Room By id 
+        [HttpGet("/RoomDetails/roomID")]
+        public IActionResult GetRoomDetails(int id)
+        {
+            var roomDetails = _roomService.GetAllRoomById(id);
+            if (roomDetails == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                return Ok(roomDetails);
+            }
+        }
+
+        // Search Room 
+        [HttpPost("/SearchRoom/roomName")]
+        public IActionResult SearchRoomByName(string context)
+        {
+            var room = _roomService.SearchRoom(context);
+            if (room != null)
+            {
+                return Ok(room);
+            } else
+            {
+                return NotFound();
+            }
         }
     }
 }

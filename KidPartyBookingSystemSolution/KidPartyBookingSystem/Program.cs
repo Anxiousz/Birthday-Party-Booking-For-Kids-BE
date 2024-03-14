@@ -6,7 +6,13 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication;
+using Net.payOS;
 
+IConfiguration configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+
+PayOS payOS = new PayOS(configuration["Environment:PAYOS_CLIENT_ID"] ?? throw new Exception("Cannot find environment"),
+                    configuration["Environment:PAYOS_API_KEY"] ?? throw new Exception("Cannot find environment"),
+                    configuration["Environment:PAYOS_CHECKSUM_KEY"] ?? throw new Exception("Cannot find environment"));
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -26,6 +32,7 @@ builder.Services.AddScoped<ITransactionBookingService, TransactionBookingService
 builder.Services.AddScoped<IVoucherService, VoucherService>();
 builder.Services.AddScoped<IRegisteredUserService, RegisteredUserService>();
 builder.Services.AddScoped<IPartyHostService, PartyHostService>();
+builder.Services.AddSingleton(payOS);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -76,7 +83,14 @@ builder.Services.AddSwaggerGen(option =>
         }
     });
 });
-
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.WithOrigins("*").AllowAnyHeader().AllowAnyMethod();
+        });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -85,12 +99,7 @@ var app = builder.Build();
 
 app.UseRouting(); // Add UseRouting before UseCors
 
-app.UseCors(options =>
-{
-    options.AllowAnyOrigin();
-    options.AllowAnyHeader();
-    options.AllowAnyMethod();
-});
+app.UseCors();
 
 app.UseAuthentication();
 app.UseAuthorization();

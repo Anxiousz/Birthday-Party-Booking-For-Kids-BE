@@ -142,5 +142,19 @@ namespace KidPartyBookingSystem.Controllers
                 return NotFound();
             }
         }
+
+        [HttpGet("/roomID")]
+        public IActionResult GetRoomByID(int id)
+        {
+            var roomDetails = _roomService.GetRoomById(id);
+            if (roomDetails == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                return Ok(roomDetails);
+            }
+        }
     }
 }

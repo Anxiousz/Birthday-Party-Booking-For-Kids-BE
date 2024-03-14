@@ -30,5 +30,7 @@ namespace Services.Impl
         public bool UpdateRoom(int id, RequestRoomDTO updatedRoom) => roomDAO.UpdateRoom(id, updatedRoom);
 
         public Room SearchRoom(string context) => roomDAO.SearchRoom(context);
+
+        public Room GetRoomById(int id) => roomDAO.GetRoomById(id);
     }
 }

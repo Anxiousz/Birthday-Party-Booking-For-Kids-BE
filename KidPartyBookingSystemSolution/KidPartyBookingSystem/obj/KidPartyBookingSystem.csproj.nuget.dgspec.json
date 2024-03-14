@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\KidPartyBookingSystem\\KidPartyBookingSystem.csproj": {}
+    "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\KidPartyBookingSystem\\KidPartyBookingSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj": {
+    "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj",
+        "projectUniqueName": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj",
         "projectName": "BusinessObjects",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\BusinessObjects\\obj\\",
+        "projectPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj",
+        "packagesPath": "C:\\Users\\anh12\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\BusinessObjects\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\anh12\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,21 +85,17 @@
         }
       }
     },
-    "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\DAO\\DAO.csproj": {
+    "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\DAO\\DAO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\DAO\\DAO.csproj",
+        "projectUniqueName": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\DAO\\DAO.csproj",
         "projectName": "DAO",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\DAO\\DAO.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\DAO\\obj\\",
+        "projectPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\DAO\\DAO.csproj",
+        "packagesPath": "C:\\Users\\anh12\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\DAO\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\anh12\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -117,8 +109,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj"
+              "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj": {
+                "projectPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\BusinessObjects\\BusinessObjects.csproj"
               }
             }
           }
@@ -158,21 +150,17 @@
         }
       }
     },
-    "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\KidPartyBookingSystem\\KidPartyBookingSystem.csproj": {
+    "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\KidPartyBookingSystem\\KidPartyBookingSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\KidPartyBookingSystem\\KidPartyBookingSystem.csproj",
+        "projectUniqueName": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\KidPartyBookingSystem\\KidPartyBookingSystem.csproj",
         "projectName": "KidPartyBookingSystem",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\KidPartyBookingSystem\\KidPartyBookingSystem.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\KidPartyBookingSystem\\obj\\",
+        "projectPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\KidPartyBookingSystem\\KidPartyBookingSystem.csproj",
+        "packagesPath": "C:\\Users\\anh12\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\KidPartyBookingSystem\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\anh12\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -186,8 +174,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\Services\\Services.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\Services\\Services.csproj"
+              "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\Services\\Services.csproj": {
+                "projectPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\Services\\Services.csproj"
               }
             }
           }
@@ -213,6 +201,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
+            },
+            "payOS": {
+              "target": "Package",
+              "version": "[1.0.4, )"
             }
           },
           "imports": [
@@ -238,21 +230,17 @@
         }
       }
     },
-    "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\Repository\\Repository.csproj": {
+    "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\Repository\\Repository.csproj",
+        "projectUniqueName": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\Repository\\Repository.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\Repository\\obj\\",
+        "projectPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\Repository\\Repository.csproj",
+        "packagesPath": "C:\\Users\\anh12\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\Repository\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\anh12\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -266,8 +254,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\DAO\\DAO.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\DAO\\DAO.csproj"
+              "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\DAO\\DAO.csproj": {
+                "projectPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\DAO\\DAO.csproj"
               }
             }
           }
@@ -301,21 +289,17 @@
         }
       }
     },
-    "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\Services\\Services.csproj": {
+    "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\Services\\Services.csproj",
+        "projectUniqueName": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\Services\\obj\\",
+        "projectPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\anh12\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\Services\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\anh12\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -329,8 +313,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\Repository\\Repository.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\Repository\\Repository.csproj"
+              "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\Users\\anh12\\OneDrive\\Máy tính\\Chuyên ngành 7\\SWD392\\Source Code\\Party Hosting System - BE\\KidPartyBookingSystemSolution\\Repository\\Repository.csproj"
               }
             }
           }

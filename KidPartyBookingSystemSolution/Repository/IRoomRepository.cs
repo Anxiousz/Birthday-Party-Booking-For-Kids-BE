@@ -17,5 +17,6 @@ namespace Services
         public List<Room> GetRoomList();
         public RequestRoomDTO CreateNewRoom(RequestRoomDTO roomRequest);
         public Room SearchRoom(string context);
+        public Room GetRoomById(int id);
     }
 }

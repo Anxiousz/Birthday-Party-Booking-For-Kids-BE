@@ -189,5 +189,10 @@ namespace DAO
             }
             return room;
         }
+
+        public Room GetRoomById(int id)
+        {
+            return dbContext.Rooms.FirstOrDefault(room => room.RoomId == id);
+        }
     }
 }

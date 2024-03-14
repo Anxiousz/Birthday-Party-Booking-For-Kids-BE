@@ -12,19 +12,15 @@ public class CheckoutController : Controller
 {
     private readonly PayOS _payOS;
     private IRoomService _roomService;
+    private IMenuOrderService _menuOrderService;
 
 
-    public CheckoutController(PayOS payOS, IRoomService roomService)
+    public CheckoutController(PayOS payOS, IRoomService roomService, IMenuOrderService menuOrderService)
     {
         _payOS = payOS;
         _roomService = roomService;
+        _menuOrderService = menuOrderService;
 
-    }
-
-    [HttpGet("/")]
-    public IActionResult Index()
-    {
-        return View("index");
     }
     [HttpGet("/cancel")]
     public IActionResult Cancel()
@@ -42,13 +38,15 @@ public class CheckoutController : Controller
         try
         {
             var Room = _roomService.GetRoomById(RoomID);
-         //   var MenuOrder = _roomService.Get
+            var MenuOrder = _menuOrderService.getMenuOrder(MenuOrderID);
 
             int orderCode = int.Parse(DateTimeOffset.Now.ToString("ffffff"));
-            ItemData item = new ItemData("Mì tôm hảo hảo ly", 1, 10000);
+            ItemData itemMenuOrder = new ItemData(MenuOrder.FoodName, 1, MenuOrder.TotalPrice);
+            ItemData itemRoom = new ItemData(Room.RoomName, 1, Room.Price);
             List<ItemData> items = new List<ItemData>();
-            items.Add(item);
-            PaymentData paymentData = new PaymentData(orderCode, Room.Price  , "Thanh toan don hang", items, "http://localhost:5267/cancel", "http://localhost:5267/success");
+            items.Add(itemMenuOrder);
+            items.Add(itemRoom);
+            PaymentData paymentData = new PaymentData(orderCode, Room.Price + MenuOrder.TotalPrice  , "Thanh toan don hang", items, "https://partyhostingsystem.azurewebsites.net/cancel", "https://partyhostingsystem.azurewebsites.net/successs");
 
             CreatePaymentResult createPayment = await _payOS.createPaymentLink(paymentData);
             return Ok(createPayment.checkoutUrl);
@@ -56,7 +54,7 @@ public class CheckoutController : Controller
         catch (System.Exception exception)
         {
             Console.WriteLine(exception);
-            return Redirect("http://localhost:5267/");
+            return BadRequest();
         }
     }
 }

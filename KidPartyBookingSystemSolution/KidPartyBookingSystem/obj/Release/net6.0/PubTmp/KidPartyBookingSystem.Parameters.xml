@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="IIS Web Application Name" description="" value="PartyHostingSystem" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\anh12\\OneDrive\\Máy\ tính\\Chuyên\ ngành\ 7\\SWD392\\Source\ Code\\Party\ Hosting\ System\ -\ BE\\KidPartyBookingSystemSolution\\KidPartyBookingSystem\\obj\\Release\\net6\.0\\PubTmp\\Out\\$" />
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Admin\\Desktop\\SWD_GroupProject\\KidPartyBookingSystemSolution\\KidPartyBookingSystem\\obj\\Release\\net6\.0\\PubTmp\\Out\\$" />
   </parameter>
 </parameters>

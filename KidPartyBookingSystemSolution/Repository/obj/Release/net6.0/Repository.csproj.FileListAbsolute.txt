@@ -16,3 +16,21 @@ C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hos
 C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\Repository\obj\Release\net6.0\refint\Repository.dll
 C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\Repository\obj\Release\net6.0\Repository.pdb
 C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\Repository\obj\Release\net6.0\ref\Repository.dll
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\Repository\bin\Release\net6.0\Repository.deps.json
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\Repository\bin\Release\net6.0\Repository.dll
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\Repository\bin\Release\net6.0\Repository.pdb
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\Repository\bin\Release\net6.0\BusinessObjects.dll
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\Repository\bin\Release\net6.0\DAO.dll
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\Repository\bin\Release\net6.0\DAO.pdb
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\Repository\bin\Release\net6.0\BusinessObjects.pdb
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\Repository\obj\Release\net6.0\Repository.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\Repository\obj\Release\net6.0\Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\Repository\obj\Release\net6.0\Repository.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\Repository\obj\Release\net6.0\Repository.AssemblyInfo.cs
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\Repository\obj\Release\net6.0\Repository.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\Repository\obj\Release\net6.0\Repository.sourcelink.json
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\Repository\obj\Release\net6.0\Repository.csproj.CopyComplete
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\Repository\obj\Release\net6.0\Repository.dll
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\Repository\obj\Release\net6.0\refint\Repository.dll
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\Repository\obj\Release\net6.0\Repository.pdb
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\Repository\obj\Release\net6.0\ref\Repository.dll

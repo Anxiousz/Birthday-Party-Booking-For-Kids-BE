@@ -1,4 +1,6 @@
-﻿using BusinessObjects;
+﻿using AutoMapper;
+using BusinessObjects;
+using BusinessObjects.Request;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -34,8 +36,6 @@ namespace DAO
                 return instance;
             }
         }
-
-
 
         // Check Menu Party Host (
         public bool checkFoodInstance(int id)
@@ -96,7 +96,7 @@ namespace DAO
         {
             try
             {
-                if(id != null)
+                if (id != null)
                 {
                     MenuOrder orderUpdate = getMenuOrder(id);
                     orderUpdate = new MenuOrder()
@@ -111,8 +111,41 @@ namespace DAO
             }
             catch (Exception ex)
             {
-                throw new Exception (ex.Message);
+                throw new Exception(ex.Message);
             }
         }
+
+        // Create a Menu Order
+        public MenuOrder createMenuOrderFull(RequestMenuOrderDTO order)
+        {
+            try
+            {
+                if (order != null)
+                {
+                    var config = new MapperConfiguration(cfg =>
+                    {
+                        cfg.AddProfile<MappingProfile>();
+                    });
+                    IMapper mapper = config.CreateMapper();
+                    MenuOrder menuOrder = mapper.Map<MenuOrder>(order);
+                    menuOrder.FoodName = hostDAO.getMenuPartyHostFoodById(order.FoodOrderId.Value).FoodName;
+                    menuOrder.TotalPrice = hostDAO.getMenuPartyHostFoodById(order.FoodOrderId.Value).Price * order.Quantity;
+                    dbContext.MenuOrders.Add(menuOrder);
+                    dbContext.SaveChanges();
+                    return menuOrder;
+                }
+                else
+                {
+                    throw new Exception("order is invalid!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+
     }
 }

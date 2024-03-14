@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using BusinessObjects.Request;
 using DAO;
 using System;
 using System.Collections.Generic;
@@ -21,5 +22,8 @@ namespace Services.Impl
         public MenuOrder getMenuOrder(int id) => MenuOrderDAO.Instance.getMenuOrder(id);
 
         public void updateMenuOrder(int id, MenuOrder updateMenuOrder) => MenuOrderDAO.Instance.updateMenuOrder(id, updateMenuOrder);
+
+        public MenuOrder createMenuOrderFull(RequestMenuOrderDTO order) => MenuOrderDAO.Instance.createMenuOrderFull(order);
     }
+
 }

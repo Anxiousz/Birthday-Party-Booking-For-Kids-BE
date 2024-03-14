@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using BusinessObjects.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,7 @@ namespace Services
         public MenuOrder getMenuOrder(int id);
         public MenuOrder createMenuOrder();
         public void updateMenuOrder(int id, MenuOrder updateMenuOrder);
+        public MenuOrder createMenuOrderFull(RequestMenuOrderDTO order);
+
     }
 }

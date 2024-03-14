@@ -9,7 +9,7 @@ namespace KidPartyBookingSystem.Controllers
 {
     [ApiController]
     [Route("api/v1/[Controller]")]
-    [Authorize (Roles = "3")]
+    
     public class RoomController : ControllerBase
     {
         private IConfiguration _config;
@@ -35,6 +35,7 @@ namespace KidPartyBookingSystem.Controllers
         // Update Status Room ID 
         [HttpPost("UpdateStatus/{id}")]
         [ActionName("UpdateStatusRoom")]
+        [Authorize(Roles = "3")]
         public IActionResult UpdateStatus(int id)
         {
             var room = _roomService.getRoomById(id);
@@ -52,6 +53,7 @@ namespace KidPartyBookingSystem.Controllers
         // Update Room By ID
         [HttpPut("Update/{id}")]
         [ActionName("UpdateRoom")]
+        [Authorize(Roles = "3")]
         public IActionResult UpdateRoom(int id, [FromBody] RequestRoomDTO updateRoom)
         {
             var room = _roomService.getRoomById(id);
@@ -97,6 +99,7 @@ namespace KidPartyBookingSystem.Controllers
         // Create New Room 
         [HttpPost("Create")]
         [ActionName("Create New Room")]
+        [Authorize(Roles = "3")]
         public IActionResult CreateNewRoom([FromBody] RequestRoomDTO roomRequest)
         {
             try

@@ -5,6 +5,7 @@ using Net.payOS;
 using Microsoft.AspNetCore.Cors;
 using Services;
 using Microsoft.AspNetCore.Authorization;
+using BusinessObjects.Request;
 
 [EnableCors]
 [Authorize(Roles = "3")]
@@ -33,13 +34,12 @@ public class CheckoutController : Controller
         return View("success");
     }
     [HttpPost("/create-payment-link")]
-    public async Task<IActionResult> Checkout(int RoomID , int MenuOrderID)
+    public async Task<IActionResult> Checkout([FromBody] RequestPaymentDTO request)
     {
         try
         {
-            var Room = _roomService.GetRoomById(RoomID);
-            var MenuOrder = _menuOrderService.getMenuOrder(MenuOrderID);
-
+            var Room = _roomService.GetRoomById(request.RoomID);
+            var MenuOrder = _menuOrderService.getMenuOrder(request.MenuOrderID);
             int orderCode = int.Parse(DateTimeOffset.Now.ToString("ffffff"));
             ItemData itemMenuOrder = new ItemData(MenuOrder.FoodName, 1, MenuOrder.TotalPrice);
             ItemData itemRoom = new ItemData(Room.RoomName, 1, Room.Price);

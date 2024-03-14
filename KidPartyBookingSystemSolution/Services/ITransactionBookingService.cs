@@ -1,4 +1,6 @@
-﻿using BusinessObjects.Response;
+﻿using BusinessObjects;
+using BusinessObjects.Request;
+using BusinessObjects.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,7 @@ namespace Services
 {
     public interface ITransactionBookingService
     {
-        Task<ResponseTransactionDTO> GetTransactionById(int id);
+        public Task<ResponseTransactionDTO> GetTransactionById(int id);
+        public TransactionBooking CreateTransactionBooking(RequestCreateTransactionBookingDTO transactionBooking);
     }
 }

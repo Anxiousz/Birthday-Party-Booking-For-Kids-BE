@@ -1,4 +1,6 @@
-﻿using BusinessObjects.Response;
+﻿using BusinessObjects;
+using BusinessObjects.Request;
+using BusinessObjects.Response;
 using DAO;
 using System;
 using System.Collections.Generic;
@@ -17,5 +19,7 @@ namespace Services.Impl
         }
 
         public Task<ResponseTransactionDTO> GetTransactionById(int id) => transactionBookingDAO.GetTransactionById(id);
+        public TransactionBooking CreateTransactionBooking(RequestCreateTransactionBookingDTO transactionBooking) => transactionBookingDAO.CreateTransactionBooking(transactionBooking);
+
     }
 }

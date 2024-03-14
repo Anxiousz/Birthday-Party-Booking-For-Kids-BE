@@ -1,4 +1,6 @@
-﻿using BusinessObjects;
+﻿using AutoMapper;
+using BusinessObjects;
+using BusinessObjects.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +31,19 @@ namespace DAO
                 }
                 return instance;
             }
+        }
+
+        public Payment createPayment(RequestCreatePaymentDTO payment)
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<MappingProfile>();
+            });
+            IMapper mapper = config.CreateMapper();
+            Payment addPayment = mapper.Map<Payment>(payment);
+            dbContext.Payments.Add(addPayment);
+            dbContext.SaveChanges();
+            return addPayment;
         }
     }
 }

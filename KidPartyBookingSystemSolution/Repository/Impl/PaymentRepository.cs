@@ -1,4 +1,6 @@
-﻿using DAO;
+﻿using BusinessObjects;
+using BusinessObjects.Request;
+using DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,11 @@ namespace Services.Impl
         public PaymentRepository()
         {
             paymentDAO = new PaymentDAO();
+        }
+
+        public Payment createPayment(RequestCreatePaymentDTO payment)
+        {
+            return paymentDAO.createPayment(payment);
         }
     }
 }

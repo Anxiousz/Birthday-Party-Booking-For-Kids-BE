@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessObjects;
+using BusinessObjects.Request;
 
 namespace Services.Impl
 {
@@ -15,6 +17,11 @@ namespace Services.Impl
         public PaymentService()
         {
             paymentRepository = new PaymentRepository();
+        }
+
+        public Payment createPayment(RequestCreatePaymentDTO payment)
+        {
+            return paymentRepository.createPayment(payment);
         }
     }
 }

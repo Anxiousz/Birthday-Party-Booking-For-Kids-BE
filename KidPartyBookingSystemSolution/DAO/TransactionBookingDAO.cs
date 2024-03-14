@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BusinessObjects;
+using BusinessObjects.Request;
 using BusinessObjects.Response;
 using System;
 using System.Collections.Generic;
@@ -60,6 +61,19 @@ namespace DAO
                 return null;
             }
 
+        }
+
+        public TransactionBooking CreateTransactionBooking(RequestCreateTransactionBookingDTO transaction)
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<MappingProfile>();
+            });
+            IMapper mapper = config.CreateMapper();
+            TransactionBooking addTransaction = mapper.Map<TransactionBooking>(transaction);
+            dbContext.TransactionBookings.Add(addTransaction);
+            dbContext.SaveChanges();
+            return addTransaction;
         }
     }
 }

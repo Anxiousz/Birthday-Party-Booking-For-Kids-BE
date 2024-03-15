@@ -38,9 +38,9 @@ namespace KidPartyBookingSystem.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "4")]
         [Route("Comment")]
-        public async Task<IActionResult> Commnet(RequestFeedbackDTO feedbackDTO)
+        public async Task<IActionResult> Comment(RequestFeedbackDTO feedbackDTO)
         {
             try
             {
@@ -60,7 +60,7 @@ namespace KidPartyBookingSystem.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "4")]
         [Route("Rate")]
         public async Task<IActionResult> Rate(RequestFeedbackDTO feedbackDTO)
         {

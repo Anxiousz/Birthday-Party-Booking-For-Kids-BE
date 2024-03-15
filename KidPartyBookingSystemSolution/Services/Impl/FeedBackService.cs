@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BusinessObjects.Request;
 using BusinessObjects.Response;
+using BusinessObjects;
 
 namespace Services.Impl
 {
@@ -22,5 +23,7 @@ namespace Services.Impl
         public Task<bool> CreateFeedback(RequestFeedbackDTO feedback) => feedBackRepository.CreateFeedback(feedback);
 
         public Task<ReponseFeedbackDTO> GetFeedbackById(int feedback) => feedBackRepository.GetFeedbackById(feedback);
+
+        public List<Feedback> listFeedBack() => feedBackRepository.listFeedBack();
     }
 }

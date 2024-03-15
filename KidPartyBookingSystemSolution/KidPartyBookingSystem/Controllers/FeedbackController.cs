@@ -16,7 +16,7 @@ namespace KidPartyBookingSystem.Controllers
         }
 
 
-        [HttpGet]
+        [HttpGet("FeedBackByID")]
         public async Task<IActionResult> ViewFeedback(int feedbackId)
         {
             try
@@ -79,6 +79,17 @@ namespace KidPartyBookingSystem.Controllers
                 Console.WriteLine($"Error: {ex}");
                 return BadRequest("Invalid Request");
             }
+        }
+
+        [HttpGet("listFeedBack")]
+        public IActionResult listFeedBack()
+        {
+            var list = _feedbackService.listFeedBack();
+            if (list == null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+            return Ok(list);
         }
     }
 }

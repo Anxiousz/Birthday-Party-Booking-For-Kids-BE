@@ -90,5 +90,10 @@ namespace DAO
                 return false;
             }
         }
+
+        public List<Feedback> listFeedBack()
+        {
+            return dbContext.Feedbacks.ToList();
+        }
     }
 }

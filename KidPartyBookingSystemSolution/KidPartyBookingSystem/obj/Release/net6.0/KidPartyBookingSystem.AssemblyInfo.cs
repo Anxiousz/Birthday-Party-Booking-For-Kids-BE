@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KidPartyBookingSystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e2bb3c1b6da9616ea15041634e1dd835cf81bb3e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a97553915d7ed8031a048d32fe1cb9dcee40856")]
 [assembly: System.Reflection.AssemblyProductAttribute("KidPartyBookingSystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KidPartyBookingSystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

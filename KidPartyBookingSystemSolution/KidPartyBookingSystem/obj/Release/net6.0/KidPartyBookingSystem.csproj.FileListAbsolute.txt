@@ -168,3 +168,7 @@ C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\KidPartyBo
 C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\KidPartyBookingSystem\obj\Release\net6.0\KidPartyBookingSystem.pdb
 C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\KidPartyBookingSystem\obj\Release\net6.0\KidPartyBookingSystem.genruntimeconfig.cache
 C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\KidPartyBookingSystem\obj\Release\net6.0\ref\KidPartyBookingSystem.dll
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\KidPartyBookingSystem\bin\Release\net6.0\Newtonsoft.Json.dll
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\KidPartyBookingSystem\bin\Release\net6.0\payos-lib-backend-dotnet.dll
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\KidPartyBookingSystem\obj\Release\net6.0\KidPartyBookingSystem.RazorAssemblyInfo.cache
+C:\Users\Admin\Desktop\SWD_GroupProject\KidPartyBookingSystemSolution\KidPartyBookingSystem\obj\Release\net6.0\KidPartyBookingSystem.RazorAssemblyInfo.cs

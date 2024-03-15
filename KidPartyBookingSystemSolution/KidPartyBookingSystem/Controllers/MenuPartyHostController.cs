@@ -7,7 +7,6 @@ namespace KidPartyBookingSystem.Controllers
 {
     [ApiController]
     [Route("api/v1/[Controller]")]
-    [Authorize (Roles = "3")]
     public class MenuPartyHostController : ControllerBase
     {
         private static String NOT_FOUND = "Hien tai khong tim thay du lieu";
@@ -32,6 +31,7 @@ namespace KidPartyBookingSystem.Controllers
         }
 
         [HttpGet("GetOneFood/{id}")]
+        [Authorize(Roles = "3")]
         public IActionResult GetMenuFoodById(int id)
         {
             var food = _menuPartyHostService.getMenuPartyHostFoodById(id);
@@ -43,6 +43,7 @@ namespace KidPartyBookingSystem.Controllers
         }
 
         [HttpDelete("Delete/{id}")]
+        [Authorize(Roles = "3")]
         public IActionResult DeleteMenuFoodById(int id)
         {
             if (_menuPartyHostService.deleteMenuPartyHost(id) == true)

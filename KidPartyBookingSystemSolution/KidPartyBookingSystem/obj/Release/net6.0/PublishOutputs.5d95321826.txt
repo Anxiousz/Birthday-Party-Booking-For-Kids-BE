@@ -29,6 +29,8 @@ C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hos
 C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\KidPartyBookingSystem\obj\Release\net6.0\PubTmp\Out\Microsoft.OpenApi.dll
 C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\KidPartyBookingSystem\obj\Release\net6.0\PubTmp\Out\Microsoft.SqlServer.Server.dll
 C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\KidPartyBookingSystem\obj\Release\net6.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
+C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\KidPartyBookingSystem\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
+C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\KidPartyBookingSystem\obj\Release\net6.0\PubTmp\Out\payos-lib-backend-dotnet.dll
 C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\KidPartyBookingSystem\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\KidPartyBookingSystem\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\anh12\OneDrive\Máy tính\Chuyên ngành 7\SWD392\Source Code\Party Hosting System - BE\KidPartyBookingSystemSolution\KidPartyBookingSystem\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll

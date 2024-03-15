@@ -8,8 +8,9 @@ namespace BusinessObjects.Request
 {
     public class RequestPaymentDTO
     {
+        public int FoodOrderId { get; set; }
+        public int Quantity { get; set; }
         public int RoomID { get; set; }
-        public int MenuOrderID { get; set; }
         public int AccID { get; set; }
     }
 }

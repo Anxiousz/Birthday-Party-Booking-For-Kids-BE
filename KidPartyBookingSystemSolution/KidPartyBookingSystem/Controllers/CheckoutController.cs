@@ -17,8 +17,9 @@ public class CheckoutController : Controller
     private IPaymentService _paymentService;
     private ITransactionBookingService _transactionBookingService;
     private IBookingService _bookingService;
+    private IMenuPartyHostService _menuPartyHostService;
 
-    public CheckoutController(PayOS payOS, IRoomService roomService, IMenuOrderService menuOrderService, IPaymentService paymentService, ITransactionBookingService transactionBookingService, IBookingService bookingService)
+    public CheckoutController(PayOS payOS, IRoomService roomService, IMenuOrderService menuOrderService, IPaymentService paymentService, ITransactionBookingService transactionBookingService, IBookingService bookingService, IMenuPartyHostService menuPartyHostService)
     {
         _payOS = payOS;
         _roomService = roomService;
@@ -26,6 +27,7 @@ public class CheckoutController : Controller
         _paymentService = paymentService;
         _transactionBookingService = transactionBookingService;
         _bookingService = bookingService;
+        _menuPartyHostService = menuPartyHostService;
     }
     [HttpGet("/cancel")]
     public IActionResult Cancel()
@@ -43,20 +45,19 @@ public class CheckoutController : Controller
         try
         {
             var Room = _roomService.GetRoomById(request.RoomID);
-            var MenuOrder = _menuOrderService.getMenuOrder(request.MenuOrderID);
-            int orderCode = int.Parse(DateTimeOffset.Now.ToString("ffffff"));
-            ItemData itemMenuOrder = new ItemData(MenuOrder.FoodName, 1, MenuOrder.TotalPrice);
-            ItemData itemRoom = new ItemData(Room.RoomName, 1, Room.Price);
-            List<ItemData> items = new List<ItemData>();
-            items.Add(itemMenuOrder);
-            items.Add(itemRoom);
-            PaymentData paymentData = new PaymentData(orderCode, Room.Price + MenuOrder.TotalPrice  , "Thanh toan don hang", items, "https://partyhostingsystem.azurewebsites.net/cancel", "https://partyhostingsystem.azurewebsites.net/successs");
+            // Get MenuPartyHost 
+            var menuPartyHost = _menuPartyHostService.getMenuPartyHostFoodById(request.FoodOrderId);
 
-            CreatePaymentResult createPayment = await _payOS.createPaymentLink(paymentData);
+            // Insert MenuOrder
+            RequestMenuOrderDTO order = new RequestMenuOrderDTO();
+            order.FoodOrderId = menuPartyHost.FoodOrderId;
+            order.Quantity = request.Quantity;
+            var insertMenuOrder = _menuOrderService.createMenuOrderFull(order);
+
             // Insert payment
             RequestCreatePaymentDTO payment = new RequestCreatePaymentDTO();
             payment.PaymentMethod = "Credit Card";
-            payment.Amount = Room.Price + MenuOrder.TotalPrice;
+            payment.Amount = Room.Price + insertMenuOrder.TotalPrice;
             payment.CreateTime = DateTime.Now;
             payment.PaymentStatus = 1;
             var insertPayment = _paymentService.createPayment(payment);
@@ -65,16 +66,27 @@ public class CheckoutController : Controller
             RequestCreateTransactionBookingDTO transactionBooking = new RequestCreateTransactionBookingDTO();
             transactionBooking.PaymentId = insertPayment.PaymentId;
             var insertTransactionBooking = _transactionBookingService.CreateTransactionBooking(transactionBooking);
-            
+
             // Insert Booking 
             RequestBookingDTO requestBookingDTO = new RequestBookingDTO();
             requestBookingDTO.RoomId = request.RoomID;
             requestBookingDTO.AccId = request.AccID;
-            requestBookingDTO.MenuOrderId = request.MenuOrderID;
+            requestBookingDTO.MenuOrderId = insertMenuOrder.MenuOrderId;
             requestBookingDTO.TransactionId = insertTransactionBooking.TransactionId;
             requestBookingDTO.BookingDate = DateTime.Now;
             requestBookingDTO.BookingStatus = 1;
             var insertBooking = _bookingService.CreatBooking(requestBookingDTO);
+
+            //Payment
+            int orderCode = int.Parse(DateTimeOffset.Now.ToString("ffffff"));
+            ItemData itemMenuOrder = new ItemData(insertMenuOrder.FoodName, 1, insertMenuOrder.TotalPrice);
+            ItemData itemRoom = new ItemData(Room.RoomName, 1, Room.Price);
+            List<ItemData> items = new List<ItemData>();
+            items.Add(itemMenuOrder);
+            items.Add(itemRoom);
+            PaymentData paymentData = new PaymentData(orderCode, Room.Price + insertMenuOrder.TotalPrice, "Thanh toan don hang", items, "https://partyhostingsystem.azurewebsites.net/cancel", "https://partyhostingsystem.azurewebsites.net/successs");
+
+            CreatePaymentResult createPayment = await _payOS.createPaymentLink(paymentData);
 
             return Ok(createPayment.checkoutUrl);
         }

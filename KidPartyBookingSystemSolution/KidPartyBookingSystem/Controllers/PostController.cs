@@ -11,7 +11,6 @@ namespace KidPartyHostingSystemAPI.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-    [Authorize(Roles = "3")]
     public class PostController : ControllerBase
     {
         private IPostService _post;

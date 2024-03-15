@@ -16,15 +16,16 @@ public class CheckoutController : Controller
     private IMenuOrderService _menuOrderService;
     private IPaymentService _paymentService;
     private ITransactionBookingService _transactionBookingService;
+    private IBookingService _bookingService;
 
-
-    public CheckoutController(PayOS payOS, IRoomService roomService, IMenuOrderService menuOrderService, IPaymentService paymentService, ITransactionBookingService transactionBookingService)
+    public CheckoutController(PayOS payOS, IRoomService roomService, IMenuOrderService menuOrderService, IPaymentService paymentService, ITransactionBookingService transactionBookingService, IBookingService bookingService)
     {
         _payOS = payOS;
         _roomService = roomService;
         _menuOrderService = menuOrderService;
         _paymentService = paymentService;
         _transactionBookingService = transactionBookingService;
+        _bookingService = bookingService;
     }
     [HttpGet("/cancel")]
     public IActionResult Cancel()
@@ -64,6 +65,17 @@ public class CheckoutController : Controller
             RequestCreateTransactionBookingDTO transactionBooking = new RequestCreateTransactionBookingDTO();
             transactionBooking.PaymentId = insertPayment.PaymentId;
             var insertTransactionBooking = _transactionBookingService.CreateTransactionBooking(transactionBooking);
+            
+            // Insert Booking 
+            RequestBookingDTO requestBookingDTO = new RequestBookingDTO();
+            requestBookingDTO.RoomId = request.RoomID;
+            requestBookingDTO.AccId = request.AccID;
+            requestBookingDTO.MenuOrderId = request.MenuOrderID;
+            requestBookingDTO.TransactionId = insertTransactionBooking.TransactionId;
+            requestBookingDTO.BookingDate = DateTime.Now;
+            requestBookingDTO.BookingStatus = 1;
+            var insertBooking = _bookingService.CreatBooking(requestBookingDTO);
+
             return Ok(createPayment.checkoutUrl);
         }
         catch (System.Exception exception)

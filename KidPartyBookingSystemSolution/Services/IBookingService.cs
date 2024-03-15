@@ -13,5 +13,6 @@ namespace Services
         public List<Booking> getAllBookingByRoomID(int roomID);
         public List<RequestBookingPartyHostDTO> getDetailsBooking(int roomID);
         public List<Booking> GetOrders();
+        public Booking CreatBooking(RequestBookingDTO request);
     }
 }

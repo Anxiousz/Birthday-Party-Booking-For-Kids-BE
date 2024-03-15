@@ -10,5 +10,6 @@ namespace BusinessObjects.Request
     {
         public int RoomID { get; set; }
         public int MenuOrderID { get; set; }
+        public int AccID { get; set; }
     }
 }

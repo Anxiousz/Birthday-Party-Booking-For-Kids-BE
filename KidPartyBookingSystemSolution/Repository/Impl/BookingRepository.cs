@@ -21,5 +21,6 @@ namespace Services.Impl
 
         public List<RequestBookingPartyHostDTO> getDetailsBooking(int roomID) => bookingDAO.getDetailsBooking(roomID);
         public List<Booking> GetOrders() => bookingDAO.GetOrders();
+        public Booking CreatBooking(RequestBookingDTO request) => bookingDAO.CreatBooking(request);
     }
 }

@@ -1,4 +1,5 @@
-﻿using BusinessObjects;
+﻿using AutoMapper;
+using BusinessObjects;
 using BusinessObjects.Request;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -114,6 +115,19 @@ namespace DAO
                 throw new Exception(ex.Message);
             }
 
+        }
+
+        public Booking CreatBooking(RequestBookingDTO request)
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile<MappingProfile>();
+            });
+            IMapper mapper = config.CreateMapper();
+            Booking booking = mapper.Map<Booking>(request);
+            dbContext.Bookings.Add(booking);
+            dbContext.SaveChanges();
+            return booking;
         }
     }
 }

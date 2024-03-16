@@ -168,6 +168,18 @@ namespace DAO
             return result;
         }
 
-       
+        // Get All Food 
+        public List<MenuPartyHost> getMenuPartyHosts()
+        {
+            List<MenuPartyHost> foodList = null;
+            try
+            {
+                foodList = dbContext.MenuPartyHosts.ToList();
+            } catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return foodList;
+        }
     }
 }

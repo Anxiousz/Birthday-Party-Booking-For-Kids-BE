@@ -32,5 +32,7 @@ namespace Services.Impl
         public bool updateMenuPartyHostv2(RequestUpdateMenuPartyHostDTO requestFoodUpdate) => menuPartyHostDAO.updateMenuPartyHostv2(requestFoodUpdate);
 
         public RequestMenuPartyHostDTO createNewMenuPartyHost(RequestMenuPartyHostDTO food) => menuPartyHostDAO.createNewMenuPartyHost(food);
+
+        public List<MenuPartyHost> getMenuPartyHosts() => menuPartyHostDAO.getMenuPartyHosts();
     }
 }

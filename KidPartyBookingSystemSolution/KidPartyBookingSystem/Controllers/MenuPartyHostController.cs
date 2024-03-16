@@ -1,4 +1,5 @@
 ﻿using Azure.Core;
+using BusinessObjects;
 using BusinessObjects.Request;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -97,6 +98,23 @@ namespace KidPartyBookingSystem.Controllers
             }
         }
 
+
+        // Get All Menu Party Host 
+        [HttpGet("GetAllMenuPartyHost")]
+        [Authorize(Roles ="3")]
+        public IActionResult GetAllMenuPartyHost()
+        {
+            List<MenuPartyHost> list = null; 
+            list = _menuPartyHostService.getMenuPartyHosts();
+            if (list == null)
+            {
+                return NotFound("Khong timf thay bat cu san pham nao!");
+            }
+            else
+            {
+                return Ok(list);
+            }
+        }
     }
 }
 

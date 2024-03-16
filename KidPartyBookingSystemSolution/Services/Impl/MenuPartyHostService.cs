@@ -34,5 +34,6 @@ namespace Services.Impl
 
         public RequestMenuPartyHostDTO createNewMenuPartyHost(RequestMenuPartyHostDTO food) => menuPartyHostRepository.createNewMenuPartyHost(food);
 
+        public List<MenuPartyHost> getMenuPartyHosts() => menuPartyHostRepository.getMenuPartyHosts();
     }
 }

@@ -8,7 +8,7 @@ namespace BusinessObjects.Request
 {
     public class RequestMenuPartyHostDTO
     {
-        public int FoodOrderId { get; set; }
+
         public string FoodName { get; set; }
         public string Description { get; set; }
         public int Price { get; set; }

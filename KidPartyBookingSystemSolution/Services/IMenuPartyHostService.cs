@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using BusinessObjects.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,7 @@ namespace Services
         public void createNewMenuPartyHost(MenuPartyHost foodMenu);
         public bool updateMenuPartyHost(int id, MenuPartyHost updatedMenuPartyHost);
         public bool deleteMenuPartyHost(int id);
+        public RequestMenuPartyHostDTO createNewMenuPartyHost(RequestMenuPartyHostDTO food);
+        public bool updateMenuPartyHostv2(RequestUpdateMenuPartyHostDTO requestFoodUpdate);
     }
 }

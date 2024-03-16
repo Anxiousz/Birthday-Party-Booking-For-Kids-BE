@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Azure.Core;
+using BusinessObjects.Request;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Services;
@@ -53,6 +55,45 @@ namespace KidPartyBookingSystem.Controllers
             else
             {
                 return BadRequest("Hien tai khong the xoa duoc mon an nay");
+            }
+        }
+
+        // Create Manu Party Host
+        [HttpPost("CreateMenuPartyHost")]
+        //[Authorize(Roles ="3")]
+        public IActionResult CreateMenuFood([FromBody] RequestMenuPartyHostDTO menu)
+        {
+            if (menu == null)
+            {
+                return BadRequest("Fill Full empty fields please!!");
+            }
+            else
+            {
+                _menuPartyHostService.createNewMenuPartyHost(menu);
+                return Ok(menu);
+            }
+        }
+
+        // Update Menu Party Host
+        [HttpPost("UpdateMenuPartyHostV2")]
+        [Authorize(Roles = "3")]
+        public IActionResult UpdateMenuFoodV2([FromBody] RequestUpdateMenuPartyHostDTO menu)
+        {
+            if (menu == null)
+            {
+                return BadRequest("Fill Full empty fields please!!");
+            }
+            else
+            {
+                if (_menuPartyHostService.updateMenuPartyHostv2(menu) == true)
+                {
+                    return Ok(menu);
+                }
+                else
+                {
+                    return BadRequest("Update failed");
+                }
+                
             }
         }
 

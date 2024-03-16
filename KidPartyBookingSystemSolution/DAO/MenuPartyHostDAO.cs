@@ -1,4 +1,6 @@
-﻿using BusinessObjects;
+﻿using AutoMapper;
+using BusinessObjects;
+using BusinessObjects.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,8 +33,9 @@ namespace DAO
                 return instance;
             }
         }
+
         // Get Menu Party Host 
-        public List<MenuPartyHost> getListMenuPartyHost(int?id)
+        public List<MenuPartyHost> getListMenuPartyHost(int? id)
         {
             try
             {
@@ -105,5 +108,66 @@ namespace DAO
             }*/
             return false;
         }
+
+        // Create Menu PartyHost Food 
+        public RequestMenuPartyHostDTO createNewMenuPartyHost(RequestMenuPartyHostDTO food)
+        {
+            try
+            {
+                var config = new MapperConfiguration(cgf =>
+                {
+                    cgf.AddProfile<MappingProfile>();
+                });
+                IMapper mapper = config.CreateMapper();
+                MenuPartyHost partyhostFood = mapper.Map<MenuPartyHost>(food);
+                if (dbContext.PartyHosts.Any(p => p.PartyHostId == food.PartyHostId))
+                {
+                    dbContext.MenuPartyHosts.Add(partyhostFood);
+                    dbContext.SaveChanges();
+                    return food;
+                }
+                else
+                {
+                    throw new Exception("Partyhostid is invalid!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        // Update Menu Party Host Food 
+        public bool updateMenuPartyHostv2(RequestUpdateMenuPartyHostDTO requestFoodUpdate)
+        {   
+            bool result = false;
+            try
+            {
+                var config = new MapperConfiguration(cfg =>
+                {
+                    cfg.AddProfile<MappingProfile>();
+                });
+                IMapper mapper = config.CreateMapper();
+                MenuPartyHost partyhostFood = mapper.Map<MenuPartyHost>(requestFoodUpdate);
+                var exsitngfood = dbContext.MenuPartyHosts.FirstOrDefault(f => f.PartyHostId == partyhostFood.PartyHostId);
+                if (exsitngfood != null)
+                {
+                    dbContext.Entry(exsitngfood).CurrentValues.SetValues(requestFoodUpdate);
+                    dbContext.SaveChanges();
+                    result = true;
+                }
+                else
+                {
+                    result = false;
+                }     
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
+        }
+
+       
     }
 }

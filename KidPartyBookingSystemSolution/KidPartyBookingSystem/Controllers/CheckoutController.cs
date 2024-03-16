@@ -79,7 +79,7 @@ public class CheckoutController : Controller
 
             //Payment
             int orderCode = int.Parse(DateTimeOffset.Now.ToString("ffffff"));
-            ItemData itemMenuOrder = new ItemData(insertMenuOrder.FoodName, 1, insertMenuOrder.TotalPrice);
+            ItemData itemMenuOrder = new ItemData(insertMenuOrder.FoodName, insertMenuOrder.Quantity, insertMenuOrder.TotalPrice);
             ItemData itemRoom = new ItemData(Room.RoomName, 1, Room.Price);
             List<ItemData> items = new List<ItemData>();
             items.Add(itemMenuOrder);

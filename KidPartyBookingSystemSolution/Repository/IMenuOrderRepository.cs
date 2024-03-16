@@ -14,6 +14,7 @@ namespace Services
         public MenuOrder createMenuOrder();
         public void updateMenuOrder(int id, MenuOrder updateMenuOrder);
         public MenuOrder createMenuOrderFull(RequestMenuOrderDTO order);
-
+        public MenuOrder UpdateMenuOrder(RequestUpdateMenuOrderDTO order);
+        public bool DeleteMenuOrder(int id);
     }
 }

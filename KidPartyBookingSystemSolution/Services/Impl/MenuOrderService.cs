@@ -26,5 +26,9 @@ namespace Services.Impl
         public void updateMenuOrder(int id, MenuOrder updateMenuOrder) => menuOrderRepository.updateMenuOrder(id, updateMenuOrder);
 
         public MenuOrder createMenuOrderFull(RequestMenuOrderDTO order) => menuOrderRepository.createMenuOrderFull(order);
+
+        public MenuOrder UpdateMenuOrder(RequestUpdateMenuOrderDTO order) => menuOrderRepository.UpdateMenuOrder(order);
+
+        public bool DeleteMenuOrder(int id) => menuOrderRepository.DeleteMenuOrder(id);
     }
 }

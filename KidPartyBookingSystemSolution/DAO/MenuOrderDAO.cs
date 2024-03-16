@@ -145,7 +145,62 @@ namespace DAO
             }
         }
 
+        // Update Menu Order
+        public MenuOrder UpdateMenuOrder(RequestUpdateMenuOrderDTO order)
+        {
+            if (order == null)
+            {
+                throw new ArgumentException("Order is not valid");
+            }
 
+            try
+            {
+                var existingOrder = dbContext.MenuOrders.FirstOrDefault(f => f.FoodOrderId == order.FoodOrderId);
+                if (existingOrder == null)
+                {
+                    throw new Exception("Order not found");
+                }
 
+                var foodDetails = hostDAO.getMenuPartyHostFoodById(order.FoodOrderId.Value);
+                if (foodDetails == null)
+                {
+                    throw new Exception("Food details not found");
+                }
+                existingOrder.FoodName = foodDetails.FoodName;
+                existingOrder.Quantity = order.Quantity;
+                existingOrder.TotalPrice = foodDetails.Price * order.Quantity;
+                dbContext.SaveChanges();
+
+                return existingOrder;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        // Delete MenuOrder
+        public bool DeleteMenuOrder(int id)
+        {   
+            bool result = false;
+            try
+            {
+                MenuOrder order = dbContext.MenuOrders.SingleOrDefault(m => m.MenuOrderId == id);
+                if (order == null)
+                {
+                    result = false;
+                }
+                else
+                {
+                    dbContext.Remove(order);
+                    dbContext.SaveChanges();
+                    result = true;
+                }
+            } catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;  
+        }
     }
 }

@@ -24,6 +24,10 @@ namespace Services.Impl
         public void updateMenuOrder(int id, MenuOrder updateMenuOrder) => MenuOrderDAO.Instance.updateMenuOrder(id, updateMenuOrder);
 
         public MenuOrder createMenuOrderFull(RequestMenuOrderDTO order) => MenuOrderDAO.Instance.createMenuOrderFull(order);
+
+        public MenuOrder UpdateMenuOrder(RequestUpdateMenuOrderDTO order) => MenuOrderDAO.Instance.UpdateMenuOrder(order);
+
+        public bool DeleteMenuOrder(int id) => MenuOrderDAO.Instance.DeleteMenuOrder(id);
     }
 
 }

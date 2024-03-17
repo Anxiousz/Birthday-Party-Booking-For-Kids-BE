@@ -49,7 +49,11 @@ namespace DAO
                     .FirstOrDefault(m => m.FoodOrderId == id && m.Bookings.Any(b => b.BookingStatus == 1));
                 if (order == null)
                 {
-                    return true;
+                    result = true;
+                }
+                else
+                {
+                    result = false;
                 }
             }
             catch (Exception ex)

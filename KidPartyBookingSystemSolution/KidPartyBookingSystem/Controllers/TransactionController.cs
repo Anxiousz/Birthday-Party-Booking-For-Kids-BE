@@ -1,4 +1,5 @@
-﻿using BusinessObjects.Response;
+﻿using BusinessObjects;
+using BusinessObjects.Response;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services;
@@ -38,5 +39,6 @@ namespace KidPartyBookingSystem.Controllers
                 return BadRequest("Invalid Request");
             }
         }
+
     }
 }

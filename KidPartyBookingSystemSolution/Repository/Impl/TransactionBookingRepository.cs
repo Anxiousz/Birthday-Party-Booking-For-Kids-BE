@@ -20,6 +20,5 @@ namespace Services.Impl
 
         public Task<ResponseTransactionDTO> GetTransactionById(int id) => transactionBookingDAO.GetTransactionById(id);
         public TransactionBooking CreateTransactionBooking(RequestCreateTransactionBookingDTO transactionBooking) => transactionBookingDAO.CreateTransactionBooking(transactionBooking);
-
     }
 }

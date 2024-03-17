@@ -115,6 +115,22 @@ namespace KidPartyBookingSystem.Controllers
                 return Ok(list);
             }
         }
+
+
+        //Delete Food V2
+        [HttpDelete("DeleteV2/{id}")]
+        [Authorize(Roles = "3")]
+        public IActionResult DeleteMenuFoodByIdV2(int id)
+        {
+            if (_menuPartyHostService.deleteFoodV2(id) == true)
+            {
+                return Ok("Successfully");
+            }
+            else
+            {
+                return BadRequest("Hien tai khong the xoa duoc mon an nay");
+            }
+        }
     }
 }
 

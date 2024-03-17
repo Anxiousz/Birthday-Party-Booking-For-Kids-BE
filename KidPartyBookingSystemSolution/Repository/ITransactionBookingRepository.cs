@@ -14,6 +14,5 @@ namespace Services
     {
         Task<ResponseTransactionDTO> GetTransactionById(int id);
         public TransactionBooking CreateTransactionBooking(RequestCreateTransactionBookingDTO transactionBooking);
-
     }
 }

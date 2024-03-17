@@ -35,5 +35,7 @@ namespace Services.Impl
         public RequestMenuPartyHostDTO createNewMenuPartyHost(RequestMenuPartyHostDTO food) => menuPartyHostRepository.createNewMenuPartyHost(food);
 
         public List<MenuPartyHost> getMenuPartyHosts() => menuPartyHostRepository.getMenuPartyHosts();
+
+        public bool deleteFoodV2(int id) => menuPartyHostRepository.deleteFoodV2((int)id);
     }
 }

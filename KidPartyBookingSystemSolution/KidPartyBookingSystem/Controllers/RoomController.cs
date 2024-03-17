@@ -67,7 +67,7 @@ namespace KidPartyBookingSystem.Controllers
             }
             try
             {
-                if (!_roomService.UpdateRoom(id, updateRoom))
+                if (_roomService.UpdateRoom(id, updateRoom) == true)
                 {
                     return Ok("Update Successfully!");
                 }

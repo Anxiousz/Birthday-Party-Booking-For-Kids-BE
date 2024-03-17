@@ -11,15 +11,17 @@ namespace DAO
 {
     public class MenuPartyHostDAO
     {
-        //private MenuOrderDAO menuOrderDAO = new MenuOrderDAO();
-        private static MenuPartyHostDAO instance = null;
-        private readonly PHSContext dbContext = null;
+        //private MenuOrderDAO menuOrderDAO;
+        private static MenuPartyHostDAO instance;
+        private readonly PHSContext dbContext;
         public MenuPartyHostDAO()
         {
             if (dbContext == null)
             {
                 dbContext = new PHSContext();
             }
+
+            //menuOrderDAO = new MenuOrderDAO();
         }
 
         public static MenuPartyHostDAO Instance
@@ -78,8 +80,8 @@ namespace DAO
         public bool updateMenuPartyHost(int id, MenuPartyHost updatedMenuPartyHost)
         {
             bool result = false;
-            MenuPartyHost food = getMenuPartyHostFoodById((int)id);
-            /*if (menuOrderDAO.checkFoodInstance(id) == true)
+            /*MenuPartyHost food = getMenuPartyHostFoodById((int)id);
+    *//*        if (menuOrderDAO.checkFoodInstance(id) == true)
             {
                 food = new MenuPartyHost
                 {
@@ -90,24 +92,41 @@ namespace DAO
                 };
                 dbContext.Update(food);
                 dbContext.SaveChanges();
-                result = true;
+                result = true;*//*
             }*/
             return result;
         }
 
-        // Update Delete Food By Party Host 
+        // Delete Food By Party Host 
         public bool deleteMenuPartyHost(int id)
         {
             bool result = false;
-            MenuPartyHost food = getMenuPartyHostFoodById(id);
-            /*if(menuOrderDAO.checkFoodInstance(id) == true && food != null)
+/*            if (menuOrderDAO.checkFoodInstance(id) == true)
             {
+                MenuPartyHost food = getMenuPartyHostFoodById(id);
                 dbContext.Remove(food);
                 dbContext.SaveChanges();
                 result = true;
             }*/
             return false;
         }
+
+        // Delete Food By PartyHostV2 
+
+        public bool deleteFoodV2(int id)
+        {
+            bool result = false;
+
+            MenuPartyHost food = getMenuPartyHostFoodById(id);
+            if (food != null)
+            {
+                dbContext.Remove(food);
+                dbContext.SaveChanges();
+                result = true;
+            }
+            return result;
+        }
+
 
         // Create Menu PartyHost Food 
         public RequestMenuPartyHostDTO createNewMenuPartyHost(RequestMenuPartyHostDTO food)
@@ -139,7 +158,7 @@ namespace DAO
 
         // Update Menu Party Host Food 
         public bool updateMenuPartyHostv2(RequestUpdateMenuPartyHostDTO requestFoodUpdate)
-        {   
+        {
             bool result = false;
             try
             {
@@ -159,7 +178,7 @@ namespace DAO
                 else
                 {
                     result = false;
-                }     
+                }
             }
             catch (Exception ex)
             {
@@ -168,6 +187,7 @@ namespace DAO
             return result;
         }
 
+
         // Get All Food 
         public List<MenuPartyHost> getMenuPartyHosts()
         {
@@ -175,7 +195,8 @@ namespace DAO
             try
             {
                 foodList = dbContext.MenuPartyHosts.ToList();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }

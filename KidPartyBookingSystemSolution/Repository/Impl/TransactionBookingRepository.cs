@@ -18,7 +18,7 @@ namespace Services.Impl
             transactionBookingDAO = new TransactionBookingDAO();
         }
 
-        public Task<ResponseTransactionDTO> GetTransactionById(int id) => transactionBookingDAO.GetTransactionById(id);
+        public List<Booking> GetTransactionById(int id) => transactionBookingDAO.GetTransactionById(id);
         public TransactionBooking CreateTransactionBooking(RequestCreateTransactionBookingDTO transactionBooking) => transactionBookingDAO.CreateTransactionBooking(transactionBooking);
 
     }

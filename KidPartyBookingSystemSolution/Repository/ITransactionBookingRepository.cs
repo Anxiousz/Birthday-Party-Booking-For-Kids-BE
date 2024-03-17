@@ -12,7 +12,7 @@ namespace Services
 {
     public interface ITransactionBookingRepository
     {
-        Task<ResponseTransactionDTO> GetTransactionById(int id);
+        public List<Booking> GetTransactionById(int id);
         public TransactionBooking CreateTransactionBooking(RequestCreateTransactionBookingDTO transactionBooking);
 
     }

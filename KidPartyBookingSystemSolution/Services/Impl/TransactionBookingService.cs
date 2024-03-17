@@ -20,7 +20,7 @@ namespace Services.Impl
             transactionBookingRepository = new TransactionBookingRepository();
         }
 
-        public Task<ResponseTransactionDTO> GetTransactionById(int id) => transactionBookingRepository.GetTransactionById(id);
+        public List<Booking> GetTransactionById(int id) => transactionBookingRepository.GetTransactionById(id);
 
         public TransactionBooking CreateTransactionBooking(RequestCreateTransactionBookingDTO transactionBooking) => transactionBookingRepository.CreateTransactionBooking(transactionBooking);
     }

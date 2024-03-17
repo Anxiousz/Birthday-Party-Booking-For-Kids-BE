@@ -1,4 +1,5 @@
-﻿using BusinessObjects.Response;
+﻿using BusinessObjects;
+using BusinessObjects.Response;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services;
@@ -6,7 +7,7 @@ using Services;
 namespace KidPartyBookingSystem.Controllers
 {
     [ApiController]
-    [Authorize]
+    [Authorize(Roles ="4")]
     [Route("api/v1/[controller]/[action]")]
     public class TransactionController : ControllerBase
     {
@@ -18,12 +19,12 @@ namespace KidPartyBookingSystem.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> ViewTransaction(int id)
+        public IActionResult ViewTransaction(int id)
         {
             try
             {
 
-                ResponseTransactionDTO? transactionDTO = await _transactionService.GetTransactionById(id);
+                List<Booking>? transactionDTO =  _transactionService.GetTransactionById(id);
 
                 if (transactionDTO == null)
                 {

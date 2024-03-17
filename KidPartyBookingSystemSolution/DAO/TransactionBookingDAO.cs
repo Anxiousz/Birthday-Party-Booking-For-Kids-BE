@@ -42,8 +42,10 @@ namespace DAO
             try
             {
                 return dbContext.Bookings
+                    .Include(x => x.MenuOrder)
+                    .Include(x => x.Room)
                     .Include(x => x.Transaction)
-                    .ThenInclude(x => x.Payment)
+                        .ThenInclude(t => t.Payment)
                     .Where(x => x.AccId == id)
                     .ToList();
             }

@@ -51,17 +51,38 @@ namespace DAO
         {
             return dbContext.Posts.FirstOrDefault(x => x.PostId == id);
         }
+
+        // Get All Post
         public List<Post> GetPosts()
         {
             List<Post> post = dbContext.Posts.ToList();
             return post;
         }
+
+        // Get All Post By PartyHostID
+        public List<Post> getAllPostByPartyHostId(int id)
+        {
+            try
+            {
+                return dbContext.Posts
+                    .Include(p => p.Feedbacks)
+                    .Where(p => p.CreatedBy == id).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        // Get Post By Id
         public Post GetPostById(int id)
         {
-            return dbContext.Posts.FirstOrDefault(p => p.PostId == id);
+            var post = dbContext.Posts
+                 .Include(p => p.Feedbacks)
+                 .SingleOrDefault(p => p.PostId == id);
+            return post;
         }
 
-        
+
         public RequestCreatePostDTO CreatePost(RequestCreatePostDTO request)
         {
             var config = new MapperConfiguration(cfg =>
@@ -75,13 +96,13 @@ namespace DAO
             dbContext.SaveChanges();
             return request;
         }
-        
+
         public bool DeletePost(int id)
         {
             Post checkExisted = checkPostExistedByID(id);
             bool isDeleted = false;
             if (checkExisted != null)
-            {   
+            {
                 var relatedFeedbacks = dbContext.Feedbacks.Where(x => x.PostId == id);
                 dbContext.Feedbacks.RemoveRange(relatedFeedbacks);
                 dbContext.Posts.Remove(checkExisted);

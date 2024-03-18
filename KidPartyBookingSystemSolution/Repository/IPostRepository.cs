@@ -20,5 +20,6 @@ namespace Services
         public int CountPost();
         public bool checkPostExistedBy(int by);
         public Post checkPostExistedByID(int id);
+        public List<Post> getAllPostByPartyHostId(int id);
     }
 }

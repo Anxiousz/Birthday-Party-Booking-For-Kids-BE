@@ -19,17 +19,17 @@ namespace KidPartyHostingSystemAPI.Controllers
             _post = post;
         }
 
-        [HttpGet]
+        [HttpGet("getAllPost")]
         public IActionResult GetPosts()
         {
             var post = _post.GetPost();
-            if (post != null)
+            if (post.Count > 0)
             {
                 return Ok(post);
             }
             return NotFound();
         }
-        [HttpGet("{id}")]
+        [HttpGet("/getPostDetail/{id}")]
         public IActionResult GetPostById(int id)
         {
             var post = _post.GetPostById(id);
@@ -107,6 +107,20 @@ namespace KidPartyHostingSystemAPI.Controllers
         {
             List<Post> searchPost = _post.searchPost(context);
             return Ok(searchPost);
+        }
+
+        [HttpGet("GetAllPostByPartyHostId/{id}")]
+        public IActionResult getAllPostByPartyHostId (int id)
+        {
+            List<Post> partyHostPosts = _post.getAllPostByPartyHostId(id);
+            if (partyHostPosts.Count > 0)
+            {
+                return Ok(partyHostPosts);
+            }
+            else
+            {
+                return NotFound();
+            }
         }
     }
 }

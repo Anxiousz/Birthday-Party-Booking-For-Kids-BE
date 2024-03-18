@@ -42,6 +42,8 @@ namespace Services.Impl
             return postDAO.DeletePost(id);
         }
 
+        public List<Post> getAllPostByPartyHostId(int id) => PostDAO.Instance.getAllPostByPartyHostId(id);
+
         public List<Post> GetPost()
         {
             return postDAO.GetPosts();

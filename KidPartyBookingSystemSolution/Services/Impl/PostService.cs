@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using BusinessObjects;
 using BussinessObjects.Request;
 using BusinessObjects.Request;
+using DAO;
 
 namespace Services.Impl
 {
@@ -39,10 +40,13 @@ namespace Services.Impl
             return postRepository.CreatePost(request);
         }
 
+        // Delete Post 
         public bool DeletePost(int id)
         {
             return postRepository.DeletePost(id);
         }
+
+        public List<Post> getAllPostByPartyHostId(int id) => PostDAO.Instance.getAllPostByPartyHostId(id);
 
         public List<Post> GetPost()
         {

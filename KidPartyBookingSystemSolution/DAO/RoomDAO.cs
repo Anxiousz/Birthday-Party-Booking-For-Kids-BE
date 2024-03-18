@@ -178,5 +178,19 @@ namespace DAO
         {
             return dbContext.Rooms.FirstOrDefault(room => room.RoomId == id);
         }
+
+        public List<Room> SearchRoomByContext(string context)
+        {
+            List<Room> roomList = null;
+            try
+            {
+                roomList = dbContext.Rooms.Where(r => r.RoomName.Contains(context)).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return roomList;
+        }
     }
 }

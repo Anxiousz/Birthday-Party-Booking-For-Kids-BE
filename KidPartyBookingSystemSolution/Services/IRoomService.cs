@@ -18,5 +18,6 @@ namespace Services
         public List<Room> GetRoomList();
         public Room SearchRoom(string context);
         public Room GetRoomById(int id);
+        public List<Room> SearchRoomByContext(string context); 
     }
 }

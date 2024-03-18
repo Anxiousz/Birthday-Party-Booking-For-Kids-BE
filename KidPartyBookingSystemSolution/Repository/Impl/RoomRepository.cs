@@ -32,5 +32,6 @@ namespace Services.Impl
         public Room SearchRoom(string context) => roomDAO.SearchRoom(context);
 
         public Room GetRoomById(int id) => roomDAO.GetRoomById(id);
+        public List<Room> SearchRoomByContext(string context) => roomDAO.SearchRoomByContext(context);
     }
 }

@@ -159,5 +159,20 @@ namespace KidPartyBookingSystem.Controllers
                 return Ok(roomDetails);
             }
         }
+
+        //Search Room v2
+        [HttpPost("/api/v2/SearchRoom/roomName")]
+        public IActionResult SearchRoomByNameV2(string context)
+        {
+            var room = _roomService.SearchRoomByContext(context);
+            if (room != null)
+            {
+                return Ok(room);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace Services
         public List<Room> GetAllRoomById(int id);
         public Room getRoomById(int id);
         public void UpdateStatusRoom(Room room);
-        public bool UpdateRoom(int id, RequestRoomDTO updatedRoom);
+        public bool UpdateRoom(RequestUpdateRoomDTO updatedRoom);
         public List<Room> GetRoomList();
         public RequestRoomDTO CreateNewRoom(RequestRoomDTO roomRequest);
         public Room SearchRoom(string context);

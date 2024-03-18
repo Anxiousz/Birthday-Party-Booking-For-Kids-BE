@@ -50,12 +50,12 @@ namespace KidPartyBookingSystem.Controllers
         }
 
         // Update Room By ID
-        [HttpPost("Update/{id}")]
+        [HttpPost("UpdateRoom")]
         [ActionName("UpdateRoom")]
         [Authorize(Roles = "3")]
-        public IActionResult UpdateRoom(int id, [FromBody] RequestRoomDTO updateRoom)
+        public IActionResult UpdateRoom( [FromBody] RequestUpdateRoomDTO updateRoom)
         {
-            var room = _roomService.getRoomById(id);
+            var room = _roomService.getRoomById(updateRoom.RoomId);
             if (room == null)
             {
                 return NotFound();
@@ -66,7 +66,7 @@ namespace KidPartyBookingSystem.Controllers
             }
             try
             {
-                if (_roomService.UpdateRoom(id, updateRoom) == true)
+                if (_roomService.UpdateRoom( updateRoom) == true)
                 {
                     return Ok("Update Successfully!");
                 }

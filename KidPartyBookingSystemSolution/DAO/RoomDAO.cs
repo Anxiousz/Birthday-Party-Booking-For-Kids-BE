@@ -2,6 +2,7 @@
 using Azure.Core;
 using BusinessObjects;
 using BusinessObjects.Request;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,7 +62,7 @@ namespace DAO
         }
 
         // Create Room By Id 
-        public RequestRoomDTO CreateNewRoom( RequestRoomDTO roomRequest)
+        public RequestRoomDTO CreateNewRoom(RequestRoomDTO roomRequest)
         {
             try
             {
@@ -94,70 +95,52 @@ namespace DAO
         {
             try
             {
-                if(room.Status == 0)
+                if (room.Status == 0)
                 {
                     room.Status = 1;
-                } else if (room.Status == 1)
+                }
+                else if (room.Status == 1)
                 {
                     room.Status = 0;
                 }
                 dbContext.SaveChanges();
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
 
         // Update Room
-        public bool UpdateRoom(int id, RequestRoomDTO updatedRoom)
+        public bool UpdateRoom(RequestUpdateRoomDTO updatedRoom)
         {
+            bool result = false;
             try
             {
-                // Lấy thông tin phòng hiện tại từ cơ sở dữ liệu
-                Room room = getRoomById(id);
 
-                if (room != null)
+                var config = new MapperConfiguration(cfg =>
                 {
-                    var config = new MapperConfiguration(cfg =>
-                    {
-                        cfg.AddProfile<MappingProfile>();
-                    });
-                    IMapper mapper = config.CreateMapper();
-                    Room updatedRoomEntity = mapper.Map<Room>(updatedRoom);
+                    cfg.AddProfile<MappingProfile>();
+                });
+                IMapper mapper = config.CreateMapper();
+                Room updatedRoomEntity = mapper.Map<Room>(updatedRoom);
 
-                    // Kiểm tra giá trị PartyHostId trong bảng PartyHosts
-                    if (dbContext.PartyHosts.Any(p => p.PartyHostId == updatedRoomEntity.PartyHostId))
-                    {
-                        // Cập nhật thông tin của phòng
-                        room.RoomName = updatedRoomEntity.RoomName;
-                        room.RoomType = updatedRoomEntity.RoomType;
-                        room.Capacity = updatedRoomEntity.Capacity;
-                        room.TimeStart = updatedRoomEntity.TimeStart;
-                        room.TimeEnd = updatedRoomEntity.TimeEnd;
-                        room.Location = updatedRoomEntity.Location;
-                        room.Price = updatedRoomEntity.Price;
-                        room.Note = updatedRoomEntity.Note;
-                        room.Status = 1;  // Cập nhật trạng thái, bạn có thể điều chỉnh tùy theo yêu cầu của bạn
+                //    var exsitingRoom = dbContext.Rooms.FirstOrDefault(f => f.PartyHostId == updatedRoomEntity.PartyHostId);
+                var exsitingRoom = dbContext.Set<Room>().Local.FirstOrDefault(e => e.PartyHostId == updatedRoomEntity.PartyHostId);
 
-                        // Lưu các thay đổi vào cơ sở dữ liệu
-                        dbContext.SaveChanges();
-
-                        return true;  // Trả về true để biểu thị rằng cập nhật thành công
-                    }
-                    else
-                    {
-                        throw new Exception("Giá trị 'PartyHostId' không hợp lệ.");
-                    }
-                }
-                else
+                if (exsitingRoom != null)
                 {
-                    throw new Exception("Không tìm thấy phòng với ID đã cho.");
+                    dbContext.Entry(exsitingRoom).State = EntityState.Detached;
                 }
+                dbContext.Entry(updatedRoomEntity).State = EntityState.Modified;
+                dbContext.SaveChanges();
+                result = true;
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
+            return result;
         }
 
         // List All Room 
@@ -176,16 +159,17 @@ namespace DAO
         }
 
         // SearchRoom
-        public Room SearchRoom( string context)
+        public Room SearchRoom(string context)
         {
             Room room = null;
             try
             {
-                
+
                 room = dbContext.Rooms.FirstOrDefault(r => r.RoomName.Equals(context));
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
-                throw new Exception (ex.Message);
+                throw new Exception(ex.Message);
             }
             return room;
         }

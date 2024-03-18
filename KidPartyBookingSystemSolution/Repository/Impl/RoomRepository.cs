@@ -27,7 +27,7 @@ namespace Services.Impl
 
         public RequestRoomDTO CreateNewRoom(RequestRoomDTO roomRequest) => roomDAO.CreateNewRoom(roomRequest);
 
-        public bool UpdateRoom(int id, RequestRoomDTO updatedRoom) => roomDAO.UpdateRoom(id, updatedRoom);
+        public bool UpdateRoom( RequestUpdateRoomDTO updatedRoom) => roomDAO.UpdateRoom( updatedRoom);
 
         public Room SearchRoom(string context) => roomDAO.SearchRoom(context);
 

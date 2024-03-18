@@ -13,8 +13,8 @@ namespace Services
         public List<MenuPartyHost> getListMenuPartyHost(int?id);
         public MenuPartyHost getMenuPartyHostFoodById(int id);
         public void createNewMenuPartyHost(MenuPartyHost foodMenu);
-        public bool updateMenuPartyHost(int id, MenuPartyHost updatedMenuPartyHost);
-        public bool deleteMenuPartyHost(int id);
+        //public bool updateMenuPartyHost(int id, MenuPartyHost updatedMenuPartyHost);
+        //public bool deleteMenuPartyHost(int id);
         public RequestMenuPartyHostDTO createNewMenuPartyHost(RequestMenuPartyHostDTO food);
         public bool updateMenuPartyHostv2(RequestUpdateMenuPartyHostDTO requestFoodUpdate);
         public List<MenuPartyHost> getMenuPartyHosts();

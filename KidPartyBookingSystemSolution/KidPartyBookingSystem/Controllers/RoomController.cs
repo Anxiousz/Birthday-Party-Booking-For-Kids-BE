@@ -44,8 +44,15 @@ namespace KidPartyBookingSystem.Controllers
             }
             else
             {
-                _roomService.UpdateStatusRoom(room);
-                return Ok();
+                if( _roomService.UpdateStatusRoom(room) == true)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest("Room is not valid to Block");
+                }
+                
             }
         }
 
@@ -79,7 +86,7 @@ namespace KidPartyBookingSystem.Controllers
         }
 
         // Get All Room
-        [HttpGet("GetAllRoom")]
+        [HttpGet("GetAllRoomAdmin")]
         [ActionName("Get All Room")]
         [EnableCors]
         public IActionResult GetRoom()
@@ -160,6 +167,7 @@ namespace KidPartyBookingSystem.Controllers
             }
         }
 
+<<<<<<< HEAD
         //Search Room v2
         [HttpPost("/api/v2/Room/SearchRoom/roomName")]
         public IActionResult SearchRoomByNameV2(string context)
@@ -172,6 +180,20 @@ namespace KidPartyBookingSystem.Controllers
             else
             {
                 return NotFound();
+=======
+        // Get Room For User Home Page
+        [HttpGet("GetRoomHomePage")]
+        public async Task<IActionResult> GetAllRoomUserPage()
+        {
+            List<Room> roomList = await _roomService.getActiveRoomList();
+            if(roomList.Count > 0)
+            {
+                return Ok(roomList);
+            }
+            else
+            {
+                return NotFound("No Room available now!!");
+>>>>>>> Chuong_BackEnd
             }
         }
     }

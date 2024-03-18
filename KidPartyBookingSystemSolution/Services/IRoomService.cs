@@ -13,11 +13,15 @@ namespace Services
         public List<Room> GetAllRoomById(int id);
         public Room getRoomById(int id);
         public RequestRoomDTO CreateNewRoom(RequestRoomDTO roomRequest);
-        public void UpdateStatusRoom(Room room);
+        public bool UpdateStatusRoom(Room room);
         public bool UpdateRoom( RequestUpdateRoomDTO updatedRoom);
         public List<Room> GetRoomList();
         public Room SearchRoom(string context);
         public Room GetRoomById(int id);
+<<<<<<< HEAD
         public List<Room> SearchRoomByContext(string context); 
+=======
+        Task<List<Room>> getActiveRoomList();
+>>>>>>> Chuong_BackEnd
     }
 }

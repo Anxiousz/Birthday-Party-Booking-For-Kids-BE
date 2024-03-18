@@ -21,13 +21,13 @@ namespace Services.Impl
 
 
 
-        public bool deleteMenuPartyHost(int id) => menuPartyHostDAO.deleteMenuPartyHost(id);
+        //public bool deleteMenuPartyHost(int id) => menuPartyHostDAO.deleteMenuPartyHost(id);
 
         public List<MenuPartyHost> getListMenuPartyHost(int?id) => menuPartyHostDAO.getListMenuPartyHost(id);
 
         public MenuPartyHost getMenuPartyHostFoodById(int id) => menuPartyHostDAO.getMenuPartyHostFoodById((int)id);
 
-        public bool updateMenuPartyHost(int id, MenuPartyHost updatedMenuPartyHost) => menuPartyHostDAO.updateMenuPartyHost(id, updatedMenuPartyHost);
+        //public bool updateMenuPartyHost(int id, MenuPartyHost updatedMenuPartyHost) => menuPartyHostDAO.updateMenuPartyHost(id, updatedMenuPartyHost);
 
         public bool updateMenuPartyHostv2(RequestUpdateMenuPartyHostDTO requestFoodUpdate) => menuPartyHostDAO.updateMenuPartyHostv2(requestFoodUpdate);
 

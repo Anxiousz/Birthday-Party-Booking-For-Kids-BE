@@ -91,24 +91,35 @@ namespace DAO
         }
 
         // Update Status Room
-        public void UpdateStatusRoom(Room room)
+        public bool UpdateStatusRoom(Room room)
         {
+            bool result = false;
             try
             {
-                if (room.Status == 0)
+                if (checkExistingRoomInBooking(room.RoomId) == true)
                 {
-                    room.Status = 1;
+                    if (room.Status == 0)
+                    {
+                        room.Status = 1;
+                        result = true;
+                    }
+                    else if (room.Status == 1)
+                    {
+                        room.Status = 0;
+                        result = true;
+                    }
+                    dbContext.SaveChanges();
                 }
-                else if (room.Status == 1)
+                else
                 {
-                    room.Status = 0;
+                    result = false;
                 }
-                dbContext.SaveChanges();
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
+            return result;
         }
 
         // Update Room
@@ -124,17 +135,23 @@ namespace DAO
                 });
                 IMapper mapper = config.CreateMapper();
                 Room updatedRoomEntity = mapper.Map<Room>(updatedRoom);
-
-                //    var exsitingRoom = dbContext.Rooms.FirstOrDefault(f => f.PartyHostId == updatedRoomEntity.PartyHostId);
-                var exsitingRoom = dbContext.Set<Room>().Local.FirstOrDefault(e => e.PartyHostId == updatedRoomEntity.PartyHostId);
-
-                if (exsitingRoom != null)
+                if (checkExistingRoomInBooking(updatedRoomEntity.RoomId) == true)
                 {
-                    dbContext.Entry(exsitingRoom).State = EntityState.Detached;
+
+                    var exsitingRoom = dbContext.Set<Room>().Local.FirstOrDefault(e => e.PartyHostId == updatedRoomEntity.PartyHostId);
+
+                    if (exsitingRoom != null)
+                    {
+                        dbContext.Entry(exsitingRoom).State = EntityState.Detached;
+                    }
+                    dbContext.Entry(updatedRoomEntity).State = EntityState.Modified;
+                    dbContext.SaveChanges();
+                    result = true;
                 }
-                dbContext.Entry(updatedRoomEntity).State = EntityState.Modified;
-                dbContext.SaveChanges();
-                result = true;
+                else
+                {
+                    result = false;
+                }
             }
             catch (Exception ex)
             {
@@ -158,6 +175,22 @@ namespace DAO
             return roomList;
         }
 
+        //List All Room in HomePage for User 
+        public async Task<List<Room>> getActiveRoomList()
+        {
+            List<Room> roomList = null;
+            try
+            {
+                roomList = await dbContext.Rooms.Where(r => r.Status == 1).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return roomList;
+        }
+
+
         // SearchRoom
         public Room SearchRoom(string context)
         {
@@ -165,7 +198,7 @@ namespace DAO
             try
             {
 
-                room = dbContext.Rooms.FirstOrDefault(r => r.RoomName.Equals(context));
+                room = dbContext.Rooms.FirstOrDefault(r => r.RoomName.Contains(context));
             }
             catch (Exception ex)
             {
@@ -174,23 +207,53 @@ namespace DAO
             return room;
         }
 
+        // Get Room By Id
         public Room GetRoomById(int id)
         {
             return dbContext.Rooms.FirstOrDefault(room => room.RoomId == id);
         }
 
+<<<<<<< HEAD
         public List<Room> SearchRoomByContext(string context)
         {
             List<Room> roomList = null;
             try
             {
                 roomList = dbContext.Rooms.Where(r => r.RoomName.Contains(context) || r.RoomType.Contains(context) || r.Location.Contains(context)).ToList();
+=======
+
+        // Check existing Room By Booking status 
+        public bool checkExistingRoomInBooking(int id)
+        {
+            bool result = false;
+            try
+            {
+                Booking booking = dbContext.Bookings
+                                  .Include(b => b.Room)
+                                  .Where(b => b.RoomId == id)
+                                  .FirstOrDefault(b => b.BookingStatus == 0 || b.BookingStatus == 2);
+                if (booking == null)
+                {
+                    result = true;
+                }
+                else
+                {
+                    return false;
+                }
+
+>>>>>>> Chuong_BackEnd
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
+<<<<<<< HEAD
             return roomList;
         }
+=======
+            return result;
+        }
+
+>>>>>>> Chuong_BackEnd
     }
 }

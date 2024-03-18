@@ -6,6 +6,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project>
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
+<<<<<<< HEAD
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAADRgxDsSLA0SBdDuFGtyq6AAAAAACAAAAAAAQZgAAAAEAACAAAABXPAnTVsrwdTC43ZDus2nLzg8HP1xcJIgVQu5Xa3Hn+AAAAAAOgAAAAAIAACAAAADpOiVds0iOwQvBhQ0UfmMhP7RBpXk7rZdk69M4Rrz2I4AAAACTzbkeDRBGxuRcUe6Vi3uQYfOa+v1/91+2W87UehwOmBUoNL+eFXs9WSGcsJPzG7PRBkZqHMHMWb9mJLeYJoTCcFnhUAp1HR4NrRvjuXkdb8gkq66bAYy6hmbAeNMhIFpv8pBHDGZSHFrkJkDXgjcoaQgpU9cEJX5GFWarOLfD2kAAAAB5y4f83r92OlTQ5aIFxeklOdtUjFHCV2QWZpPfg81zr5Sv7za64n06rXp2LjC1d/Iml1TsfkmNHdANyprk5oOm</EncryptedPassword>
+=======
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMVj9QwshYUWFSBf+JRHSQQAAAAACAAAAAAAQZgAAAAEAACAAAAB8YAqvfH4gv3GhBEwjB6rW6jb+HXiqbZ3pm1DJnO+CFQAAAAAOgAAAAAIAACAAAACJI8YimVWv2Eo0l21o/ll96eVu54ywi8igVUVkPJxk54AAAAAuGdWVduHB+XnN0xHJNjbPPGotukfzWhL8Ykam0iyM74J7SeQsjPee1nJFTD2sXKEpnaIKJ2svt5Wov5mjE7j77HwdsJJ5bjxGGx7DH1mlmiVzN4hRrhbaLEV3f9g6pMUTfTNuoygRnVwHBtkDilP8eoO6bPkJzl9amagk6yIcWEAAAABbE42WbmCP64DaEo6Rzp83qqGKsl3PWL/m0FVK3bKFM5XPcuPqP71v2KIqHYPSCeSabEMhgzu7rMbwpJ/E9WUQ</EncryptedPassword>
+>>>>>>> Chuong_BackEnd
   </PropertyGroup>
 </Project>

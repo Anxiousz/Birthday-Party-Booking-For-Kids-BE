@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BusinessObjects;
 using BussinessObjects.Request;
+using BusinessObjects.Request;
 
 namespace Services.Impl
 {
@@ -33,7 +34,7 @@ namespace Services.Impl
             return postRepository.CountPost();
         }
 
-        public RequestPostDTO CreatePost(RequestPostDTO request)
+        public RequestCreatePostDTO CreatePost(RequestCreatePostDTO request)
         {
             return postRepository.CreatePost(request);
         }

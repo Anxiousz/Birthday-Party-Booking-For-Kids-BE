@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using BusinessObjects.Request;
 using BussinessObjects.Request;
 using DAO;
 using System;
@@ -31,7 +32,7 @@ namespace Services.Impl
             return postDAO.CountPost();
         }
 
-        public RequestPostDTO CreatePost(RequestPostDTO request)
+        public RequestCreatePostDTO CreatePost(RequestCreatePostDTO request)
         {
             return postDAO.CreatePost(request);
         }

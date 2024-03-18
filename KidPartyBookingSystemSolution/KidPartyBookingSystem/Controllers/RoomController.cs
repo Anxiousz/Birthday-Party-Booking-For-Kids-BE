@@ -9,7 +9,6 @@ namespace KidPartyBookingSystem.Controllers
 {
     [ApiController]
     [Route("api/v1/[Controller]")]
-    
     public class RoomController : ControllerBase
     {
         private IConfiguration _config;
@@ -51,7 +50,7 @@ namespace KidPartyBookingSystem.Controllers
         }
 
         // Update Room By ID
-        [HttpPut("Update/{id}")]
+        [HttpPost("Update/{id}")]
         [ActionName("UpdateRoom")]
         [Authorize(Roles = "3")]
         public IActionResult UpdateRoom(int id, [FromBody] RequestRoomDTO updateRoom)
@@ -146,7 +145,8 @@ namespace KidPartyBookingSystem.Controllers
             }
         }
 
-        [HttpGet("/roomID")]
+        // Get Room Details
+        [HttpGet("GetRoomDetails/roomID")]
         public IActionResult GetRoomByID(int id)
         {
             var roomDetails = _roomService.GetRoomById(id);

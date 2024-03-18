@@ -18,6 +18,5 @@ namespace BusinessObjects.Request
         public int Price { get; set; }
         public string Note { get; set; }
         public string Image { get; set; }
-        public int Status { get; set; } = 1;
     }
 }

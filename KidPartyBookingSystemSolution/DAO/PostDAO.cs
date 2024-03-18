@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using BusinessObjects;
+using BusinessObjects.Request;
 using BussinessObjects.Request;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,7 +60,9 @@ namespace DAO
         {
             return dbContext.Posts.FirstOrDefault(p => p.PostId == id);
         }
-        public RequestPostDTO CreatePost(RequestPostDTO request)
+
+        
+        public RequestCreatePostDTO CreatePost(RequestCreatePostDTO request)
         {
             var config = new MapperConfiguration(cfg =>
             {
@@ -71,12 +75,15 @@ namespace DAO
             dbContext.SaveChanges();
             return request;
         }
+        
         public bool DeletePost(int id)
         {
             Post checkExisted = checkPostExistedByID(id);
             bool isDeleted = false;
             if (checkExisted != null)
-            {
+            {   
+                var relatedFeedbacks = dbContext.Feedbacks.Where(x => x.PostId == id);
+                dbContext.Feedbacks.RemoveRange(relatedFeedbacks);
                 dbContext.Posts.Remove(checkExisted);
                 dbContext.SaveChanges();
                 isDeleted = true;

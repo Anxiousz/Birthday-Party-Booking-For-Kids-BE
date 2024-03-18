@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using BusinessObjects.Request;
 using BussinessObjects.Request;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace Services
     {
         public List<Post> GetPost();
         public Post GetPostById(int id);
-        public RequestPostDTO CreatePost(RequestPostDTO request);
+        public RequestCreatePostDTO CreatePost(RequestCreatePostDTO request);
         public bool DeletePost(int id);
         public Post UpdatePost(Post request);
         public List<Post> searchPost(string context);

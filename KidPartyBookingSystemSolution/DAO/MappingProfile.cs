@@ -36,6 +36,7 @@ namespace DAO
             CreateMap<RequestCreateTransactionBookingDTO, TransactionBooking>();
             CreateMap<RequestBookingDTO, Booking>();
             CreateMap<RequestUpdateMenuPartyHostDTO, MenuPartyHost>();
+            CreateMap<RequestCreatePostDTO,Post>();
         }
     }
 }

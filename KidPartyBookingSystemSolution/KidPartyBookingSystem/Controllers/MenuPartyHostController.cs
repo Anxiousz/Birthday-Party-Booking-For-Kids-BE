@@ -45,7 +45,7 @@ namespace KidPartyBookingSystem.Controllers
             return Ok(food);
         }
 
-        [HttpDelete("Delete/{id}")]
+       /* [HttpDelete("Delete/{id}")]
         [Authorize(Roles = "3")]
         public IActionResult DeleteMenuFoodById(int id)
         {
@@ -57,11 +57,11 @@ namespace KidPartyBookingSystem.Controllers
             {
                 return BadRequest("Hien tai khong the xoa duoc mon an nay");
             }
-        }
+        }*/
 
-        // Create Manu Party Host
+        // Create Menu Party Host
         [HttpPost("CreateMenuPartyHost")]
-        //[Authorize(Roles ="3")]
+        [Authorize(Roles ="3")]
         public IActionResult CreateMenuFood([FromBody] RequestMenuPartyHostDTO menu)
         {
             if (menu == null)
@@ -101,7 +101,7 @@ namespace KidPartyBookingSystem.Controllers
 
         // Get All Menu Party Host 
         [HttpGet("GetAllMenuPartyHost")]
-        [Authorize(Roles ="3")]
+        [Authorize(Roles = "3")]
         public IActionResult GetAllMenuPartyHost()
         {
             List<MenuPartyHost> list = null; 

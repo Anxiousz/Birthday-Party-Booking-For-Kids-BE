@@ -84,7 +84,7 @@ public class CheckoutController : Controller
             List<ItemData> items = new List<ItemData>();
             items.Add(itemMenuOrder);
             items.Add(itemRoom);
-            PaymentData paymentData = new PaymentData(orderCode, Room.Price + insertMenuOrder.TotalPrice, "Thanh toan don hang", items, "https://partyhostingsystem.azurewebsites.net/cancel", "https://partyhostingsystem.azurewebsites.net/successs");
+            PaymentData paymentData = new PaymentData(orderCode, Room.Price + insertMenuOrder.TotalPrice, "Thanh toan don hang", items, "https://partybookforkids.web.app/room/"+request.RoomID, "https://partybookforkids.web.app/room/" + request.RoomID);
 
             CreatePaymentResult createPayment = await _payOS.createPaymentLink(paymentData);
 

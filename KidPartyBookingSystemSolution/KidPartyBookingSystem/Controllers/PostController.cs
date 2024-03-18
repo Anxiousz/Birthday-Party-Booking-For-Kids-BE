@@ -40,7 +40,7 @@ namespace KidPartyHostingSystemAPI.Controllers
             return NotFound();
         }
 
-        [HttpPost("/createNewPost")]
+        [HttpPost("createNewPost")]
         public IActionResult CreatePost([FromBody] RequestCreatePostDTO request)
         {
             if (request == null)

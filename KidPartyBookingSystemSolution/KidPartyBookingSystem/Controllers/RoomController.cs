@@ -117,7 +117,7 @@ namespace KidPartyBookingSystem.Controllers
         }
 
         // Get Room By id 
-        [HttpGet("/RoomDetails/roomID")]
+        [HttpGet("RoomDetails/roomID")]
         public IActionResult GetRoomDetails(int id)
         {
             var roomDetails = _roomService.GetAllRoomById(id);
@@ -132,7 +132,7 @@ namespace KidPartyBookingSystem.Controllers
         }
 
         // Search Room 
-        [HttpPost("/SearchRoom/roomName")]
+        [HttpPost("SearchRoom/roomName")]
         public IActionResult SearchRoomByName(string context)
         {
             var room = _roomService.SearchRoom(context);
@@ -161,7 +161,7 @@ namespace KidPartyBookingSystem.Controllers
         }
 
         //Search Room v2
-        [HttpPost("/api/v2/SearchRoom/roomName")]
+        [HttpPost("/api/v2/Room/SearchRoom/roomName")]
         public IActionResult SearchRoomByNameV2(string context)
         {
             var room = _roomService.SearchRoomByContext(context);

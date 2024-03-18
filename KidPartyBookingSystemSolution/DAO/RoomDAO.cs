@@ -184,7 +184,7 @@ namespace DAO
             List<Room> roomList = null;
             try
             {
-                roomList = dbContext.Rooms.Where(r => r.RoomName.Contains(context)).ToList();
+                roomList = dbContext.Rooms.Where(r => r.RoomName.Contains(context) || r.RoomType.Contains(context) || r.Location.Contains(context)).ToList();
             }
             catch (Exception ex)
             {

@@ -21,7 +21,7 @@ namespace Services.Impl
 
         public Room getRoomById(int id) => roomDAO.getRoomById(id);
 
-        public void UpdateStatusRoom(Room room) => roomDAO.UpdateStatusRoom(room);
+        public bool UpdateStatusRoom(Room room) => roomDAO.UpdateStatusRoom(room);
 
         public List<Room> GetRoomList() => roomDAO.GetRoomList();
 
@@ -32,5 +32,7 @@ namespace Services.Impl
         public Room SearchRoom(string context) => roomDAO.SearchRoom(context);
 
         public Room GetRoomById(int id) => roomDAO.GetRoomById(id);
+
+        public Task<List<Room>> getActiveRoomList() => roomDAO.getActiveRoomList();
     }
 }

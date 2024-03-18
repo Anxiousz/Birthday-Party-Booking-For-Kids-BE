@@ -45,20 +45,6 @@ namespace KidPartyBookingSystem.Controllers
             return Ok(food);
         }
 
-       /* [HttpDelete("Delete/{id}")]
-        [Authorize(Roles = "3")]
-        public IActionResult DeleteMenuFoodById(int id)
-        {
-            if (_menuPartyHostService.deleteMenuPartyHost(id) == true)
-            {
-                return Ok();
-            }
-            else
-            {
-                return BadRequest("Hien tai khong the xoa duoc mon an nay");
-            }
-        }*/
-
         // Create Menu Party Host
         [HttpPost("CreateMenuPartyHost")]
         [Authorize(Roles ="3")]
@@ -129,6 +115,24 @@ namespace KidPartyBookingSystem.Controllers
             else
             {
                 return BadRequest("Hien tai khong the xoa duoc mon an nay");
+            }
+        }
+
+
+        // Get All Food List 
+        [HttpGet("GetAllFoodByAdmin")]
+        [Authorize(Roles = "1")]
+        public IActionResult getAllFoodList()
+        {
+            List<MenuPartyHost> list = null;
+            list = _menuPartyHostService.getMenuPartyHosts();
+            if(list.Count == 0)
+            {
+                return BadRequest("Not found any");
+            }
+            else
+            {
+                return Ok(list);
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BusinessObjects;
 using BusinessObjects.Request;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,54 +77,26 @@ namespace DAO
             }
         }
 
-        // Update Menu Party Host
-        public bool updateMenuPartyHost(int id, MenuPartyHost updatedMenuPartyHost)
-        {
-            bool result = false;
-            /*MenuPartyHost food = getMenuPartyHostFoodById((int)id);
-    *//*        if (menuOrderDAO.checkFoodInstance(id) == true)
-            {
-                food = new MenuPartyHost
-                {
-                    FoodName = updatedMenuPartyHost.FoodName,
-                    Description = updatedMenuPartyHost.Description,
-                    Price = updatedMenuPartyHost.Price,
-                    Image = updatedMenuPartyHost.Image,
-                };
-                dbContext.Update(food);
-                dbContext.SaveChanges();
-                result = true;*//*
-            }*/
-            return result;
-        }
-
-        // Delete Food By Party Host 
-        public bool deleteMenuPartyHost(int id)
-        {
-            bool result = false;
-/*            if (menuOrderDAO.checkFoodInstance(id) == true)
-            {
-                MenuPartyHost food = getMenuPartyHostFoodById(id);
-                dbContext.Remove(food);
-                dbContext.SaveChanges();
-                result = true;
-            }*/
-            return false;
-        }
-
         // Delete Food By PartyHostV2 
-
         public bool deleteFoodV2(int id)
         {
             bool result = false;
 
-            MenuPartyHost food = getMenuPartyHostFoodById(id);
-            if (food != null)
+            if( checkExistingFood(id) == true )
             {
-                dbContext.Remove(food);
-                dbContext.SaveChanges();
-                result = true;
+                MenuPartyHost food = getMenuPartyHostFoodById(id);
+                if (food != null)
+                {
+                    dbContext.Remove(food);
+                    dbContext.SaveChanges();
+                    result = true;
+                }
             }
+            else
+            {
+                result = false;
+            }
+           
             return result;
         }
 
@@ -168,12 +141,19 @@ namespace DAO
                 });
                 IMapper mapper = config.CreateMapper();
                 MenuPartyHost partyhostFood = mapper.Map<MenuPartyHost>(requestFoodUpdate);
-                var exsitngfood = dbContext.MenuPartyHosts.FirstOrDefault(f => f.PartyHostId == partyhostFood.PartyHostId);
-                if (exsitngfood != null)
+                if(checkExistingFood(partyhostFood.FoodOrderId) == true)
                 {
-                    dbContext.Entry(exsitngfood).CurrentValues.SetValues(requestFoodUpdate);
-                    dbContext.SaveChanges();
-                    result = true;
+                    var exsitngfood = dbContext.MenuPartyHosts.FirstOrDefault(f => f.PartyHostId == partyhostFood.PartyHostId);
+                    if (exsitngfood != null)
+                    {
+                        dbContext.Entry(exsitngfood).CurrentValues.SetValues(requestFoodUpdate);
+                        dbContext.SaveChanges();
+                        result = true;
+                    }
+                    else
+                    {
+                        result = false;
+                    }
                 }
                 else
                 {
@@ -187,20 +167,46 @@ namespace DAO
             return result;
         }
 
-
         // Get All Food 
         public List<MenuPartyHost> getMenuPartyHosts()
         {
             List<MenuPartyHost> foodList = null;
             try
             {
-                foodList = dbContext.MenuPartyHosts.ToList();
+                foodList = dbContext.MenuPartyHosts
+                    .ToList();
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
             return foodList;
+        }
+
+        // Check existing Food Booked
+        public bool checkExistingFood(int id)
+        {
+            bool result = false;
+            try
+            {
+                Booking booking = dbContext.Bookings
+                                    .Include(b => b.MenuOrder)
+                                    .Where(b => b.MenuOrder.FoodOrderId == id)
+                                    .FirstOrDefault(b => b.BookingStatus == 1);
+                if (booking != null)
+                {
+                    result = false;
+                }
+                else
+                {
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
         }
     }
 }

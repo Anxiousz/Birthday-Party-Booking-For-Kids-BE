@@ -13,10 +13,11 @@ namespace Services
         public List<Room> GetAllRoomById(int id);
         public Room getRoomById(int id);
         public RequestRoomDTO CreateNewRoom(RequestRoomDTO roomRequest);
-        public void UpdateStatusRoom(Room room);
+        public bool UpdateStatusRoom(Room room);
         public bool UpdateRoom( RequestUpdateRoomDTO updatedRoom);
         public List<Room> GetRoomList();
         public Room SearchRoom(string context);
         public Room GetRoomById(int id);
+        Task<List<Room>> getActiveRoomList();
     }
 }

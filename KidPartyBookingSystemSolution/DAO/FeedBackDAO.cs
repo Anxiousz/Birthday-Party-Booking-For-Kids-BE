@@ -98,7 +98,9 @@ namespace DAO
 
         public List<Feedback> listFeedBackByPostID(int postID)
         {
-            return dbContext.Feedbacks.Where(x => x.PostId == postID).ToList();
+            return dbContext.Feedbacks
+                .Include(x => x.CreatedByNavigation)
+                .Where(x => x.PostId == postID).ToList();
         }
     }
 }

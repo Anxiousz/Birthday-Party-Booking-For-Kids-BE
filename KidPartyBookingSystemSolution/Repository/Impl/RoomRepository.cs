@@ -32,11 +32,8 @@ namespace Services.Impl
         public Room SearchRoom(string context) => roomDAO.SearchRoom(context);
 
         public Room GetRoomById(int id) => roomDAO.GetRoomById(id);
-<<<<<<< HEAD
         public List<Room> SearchRoomByContext(string context) => roomDAO.SearchRoomByContext(context);
-=======
 
         public Task<List<Room>> getActiveRoomList() => roomDAO.getActiveRoomList();
->>>>>>> Chuong_BackEnd
     }
 }

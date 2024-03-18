@@ -213,14 +213,19 @@ namespace DAO
             return dbContext.Rooms.FirstOrDefault(room => room.RoomId == id);
         }
 
-<<<<<<< HEAD
         public List<Room> SearchRoomByContext(string context)
         {
             List<Room> roomList = null;
             try
             {
                 roomList = dbContext.Rooms.Where(r => r.RoomName.Contains(context) || r.RoomType.Contains(context) || r.Location.Contains(context)).ToList();
-=======
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return roomList;
+        }
 
         // Check existing Room By Booking status 
         public bool checkExistingRoomInBooking(int id)
@@ -240,20 +245,12 @@ namespace DAO
                 {
                     return false;
                 }
-
->>>>>>> Chuong_BackEnd
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-<<<<<<< HEAD
-            return roomList;
-        }
-=======
             return result;
         }
-
->>>>>>> Chuong_BackEnd
     }
 }

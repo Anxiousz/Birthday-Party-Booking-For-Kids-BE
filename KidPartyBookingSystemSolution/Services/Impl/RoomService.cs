@@ -34,11 +34,8 @@ namespace Services.Impl
         public Room SearchRoom(string context) => roomRepository.SearchRoom(context);
 
         public Room GetRoomById(int id) => roomRepository.GetRoomById(id);
-<<<<<<< HEAD
         public List<Room> SearchRoomByContext(string context) => roomRepository.SearchRoomByContext(context);
-=======
 
         public Task<List<Room>> getActiveRoomList() => roomRepository.getActiveRoomList();
->>>>>>> Chuong_BackEnd
     }
 }

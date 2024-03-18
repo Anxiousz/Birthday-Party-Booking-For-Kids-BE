@@ -44,7 +44,7 @@ namespace KidPartyBookingSystem.Controllers
             }
             else
             {
-                if( _roomService.UpdateStatusRoom(room) == true)
+                if (_roomService.UpdateStatusRoom(room) == true)
                 {
                     return Ok();
                 }
@@ -52,7 +52,7 @@ namespace KidPartyBookingSystem.Controllers
                 {
                     return BadRequest("Room is not valid to Block");
                 }
-                
+
             }
         }
 
@@ -60,7 +60,7 @@ namespace KidPartyBookingSystem.Controllers
         [HttpPost("UpdateRoom")]
         [ActionName("UpdateRoom")]
         [Authorize(Roles = "3")]
-        public IActionResult UpdateRoom( [FromBody] RequestUpdateRoomDTO updateRoom)
+        public IActionResult UpdateRoom([FromBody] RequestUpdateRoomDTO updateRoom)
         {
             var room = _roomService.getRoomById(updateRoom.RoomId);
             if (room == null)
@@ -73,7 +73,7 @@ namespace KidPartyBookingSystem.Controllers
             }
             try
             {
-                if (_roomService.UpdateRoom( updateRoom) == true)
+                if (_roomService.UpdateRoom(updateRoom) == true)
                 {
                     return Ok("Update Successfully!");
                 }
@@ -146,7 +146,8 @@ namespace KidPartyBookingSystem.Controllers
             if (room != null)
             {
                 return Ok(room);
-            } else
+            }
+            else
             {
                 return NotFound();
             }
@@ -167,7 +168,6 @@ namespace KidPartyBookingSystem.Controllers
             }
         }
 
-<<<<<<< HEAD
         //Search Room v2
         [HttpPost("/api/v2/Room/SearchRoom/roomName")]
         public IActionResult SearchRoomByNameV2(string context)
@@ -180,20 +180,20 @@ namespace KidPartyBookingSystem.Controllers
             else
             {
                 return NotFound();
-=======
+            }
+        }
         // Get Room For User Home Page
         [HttpGet("GetRoomHomePage")]
         public async Task<IActionResult> GetAllRoomUserPage()
         {
             List<Room> roomList = await _roomService.getActiveRoomList();
-            if(roomList.Count > 0)
+            if (roomList.Count > 0)
             {
                 return Ok(roomList);
             }
             else
             {
                 return NotFound("No Room available now!!");
->>>>>>> Chuong_BackEnd
             }
         }
     }

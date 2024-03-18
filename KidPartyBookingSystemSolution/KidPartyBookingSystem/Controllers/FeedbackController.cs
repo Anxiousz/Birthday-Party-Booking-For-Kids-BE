@@ -91,5 +91,16 @@ namespace KidPartyBookingSystem.Controllers
             }
             return Ok(list);
         }
+
+        [HttpGet("listFeedBackByPostID")]
+        public IActionResult listFeedBackByPostID(int postID)
+        {
+            var list = _feedbackService.listFeedBackByPostID(postID);
+            if (list == null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+            return Ok(list);
+        }
     }
 }

@@ -62,7 +62,7 @@ namespace DAO
 
         }
 
-        public async Task<bool> CreateFeedback( RequestFeedbackDTO feedbackDTO)
+        public async Task<bool> CreateFeedback(RequestFeedbackDTO feedbackDTO)
         {
             try
             {
@@ -94,6 +94,11 @@ namespace DAO
         public List<Feedback> listFeedBack()
         {
             return dbContext.Feedbacks.ToList();
+        }
+
+        public List<Feedback> listFeedBackByPostID(int postID)
+        {
+            return dbContext.Feedbacks.Where(x => x.PostId == postID).ToList();
         }
     }
 }

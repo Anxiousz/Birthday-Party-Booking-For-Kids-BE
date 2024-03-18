@@ -14,5 +14,6 @@ namespace Services
         Task<ReponseFeedbackDTO> GetFeedbackById(int feedback);
         Task<bool> CreateFeedback(RequestFeedbackDTO feedback);
         public List<Feedback> listFeedBack();
+        public List<Feedback> listFeedBackByPostID(int postID);
     }
 }

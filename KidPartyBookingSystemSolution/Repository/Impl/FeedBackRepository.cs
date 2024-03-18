@@ -23,5 +23,6 @@ namespace Services.Impl
         public Task<ReponseFeedbackDTO> GetFeedbackById(int feedback) => feedBackDAO.GetFeedbackById(feedback);
 
         public List<Feedback> listFeedBack() => feedBackDAO.listFeedBack();
+        public List<Feedback> listFeedBackByPostID(int postID) => feedBackDAO.listFeedBackByPostID(postID);
     }
 }

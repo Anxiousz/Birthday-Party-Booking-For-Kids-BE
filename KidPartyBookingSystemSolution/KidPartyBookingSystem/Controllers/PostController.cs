@@ -29,6 +29,7 @@ namespace KidPartyHostingSystemAPI.Controllers
             }
             return NotFound();
         }
+
         [HttpGet("/getPostDetail/{id}")]
         public IActionResult GetPostById(int id)
         {

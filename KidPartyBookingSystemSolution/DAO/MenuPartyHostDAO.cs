@@ -143,17 +143,15 @@ namespace DAO
                 MenuPartyHost partyhostFood = mapper.Map<MenuPartyHost>(requestFoodUpdate);
                 if(checkExistingFood(partyhostFood.FoodOrderId) == true)
                 {
-                    var exsitngfood = dbContext.MenuPartyHosts.FirstOrDefault(f => f.PartyHostId == partyhostFood.PartyHostId);
-                    if (exsitngfood != null)
+                    var existingMenuPartyHost = dbContext.Set<MenuPartyHost>().Local.FirstOrDefault(e => e.PartyHostId == partyhostFood.PartyHostId);
+
+                    if (existingMenuPartyHost != null)
                     {
-                        dbContext.Entry(exsitngfood).CurrentValues.SetValues(requestFoodUpdate);
-                        dbContext.SaveChanges();
-                        result = true;
+                        dbContext.Entry(existingMenuPartyHost).State = EntityState.Detached;
                     }
-                    else
-                    {
-                        result = false;
-                    }
+                    dbContext.Entry(partyhostFood).State = EntityState.Modified;
+                    dbContext.SaveChanges();
+                    result = true;
                 }
                 else
                 {

@@ -236,14 +236,14 @@ namespace DAO
                 Booking booking = dbContext.Bookings
                                   .Include(b => b.Room)
                                   .Where(b => b.RoomId == id)
-                                  .FirstOrDefault(b => b.BookingStatus == 0 || b.BookingStatus == 2);
-                if (booking == null)
+                                  .FirstOrDefault(b => b.BookingStatus == 1);
+                if (booking != null)
                 {
-                    result = true;
+                    result = false;
                 }
                 else
                 {
-                    return false;
+                    return true;
                 }
             }
             catch (Exception ex)

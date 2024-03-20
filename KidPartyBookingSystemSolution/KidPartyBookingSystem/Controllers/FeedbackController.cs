@@ -6,7 +6,7 @@ using Services;
 namespace KidPartyBookingSystem.Controllers
 {
     [Route("api/v1/[controller]")]
-    [ApiController]
+    [ApiController] 
     public class FeedbackController : ControllerBase
     {
         private IFeedBackService _feedbackService;
@@ -67,7 +67,7 @@ namespace KidPartyBookingSystem.Controllers
             try
             {
                 var status = await _feedbackService.CreateFeedback(feedbackDTO);
-                if (!status)
+                if (status != true)
                 {
                     return BadRequest($"Failed to rate feedback");
                 }
